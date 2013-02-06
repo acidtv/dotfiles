@@ -1,0 +1,26 @@
+set gcr=a:blinkon0
+set autoindent
+set tabstop=4
+set nowrap
+set hlsearch
+set ignorecase
+set number
+set guioptions-=T
+syntax on
+
+" expand vim command like :tabe
+set wildmenu
+set wildmode=full
+
+
+let g:ctrlp_tabpage_position = 'ac'
+
+" Make ctrlp.vim open files in new tab
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
+
+" dont look at .hg dirs to decide where current working dir is, messes up with
+" subrepos
+let g:ctrlp_working_path_mode = '0'
