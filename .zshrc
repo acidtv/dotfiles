@@ -18,12 +18,12 @@ function hg_branch() {
 
 function hg_prompt() {
     if [ $(in_hg) ]; then
-		echo "%{$fg_bold[blue]%}$(hg_branch)%{$reset_color%}"
+		echo "☿:%{$fg_bold[blue]%}$(hg_branch)%{$reset_color%}"
     fi
 }
 
 PS1="%{$fg_bold[red]%}%m %{$fg[cyan]%}%~%{$reset_color%}%(!.#.$) "
-RPROMPT='☿:$(hg_prompt)'
+RPROMPT='$(hg_prompt)'
 
 set -o vi
 setopt autocd
