@@ -1,13 +1,35 @@
 
+setopt PROMPT_SUBST
 autoload -U colors && colors
-PS1="%{$fg_bold[red]%}%m %{$fg[cyan]%}%~%{$reset_color%}%(!.#.$) "
 
 PATH=/Users/alex/bin/:/Users/alex/.gem/ruby/1.8/bin:/usr/local/mysql/bin:/opt/subversion/bin:/usr/local/bin:$PATH
+
+function in_hg() {
+	hg su > /dev/null 2>&1
+	result=$?
+    if [[ $result == 0 ]]; then
+        echo 1
+    fi
+}
+
+function hg_branch() {
+	hg branch
+}
+
+function hg_prompt() {
+    if [ $(in_hg) ]; then
+		echo "%{$fg_bold[blue]%}$(hg_branch)%{$reset_color%}"
+    fi
+}
+
+PS1="%{$fg_bold[red]%}%m %{$fg[cyan]%}%~%{$reset_color%}%(!.#.$) "
+RPROMPT='☿:$(hg_prompt)'
 
 set -o vi
 setopt autocd
 unsetopt correct_all
 
+alias ...='cd ../..'
 alias l='ls -alhG'
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 
