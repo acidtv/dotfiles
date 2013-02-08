@@ -13,8 +13,8 @@ Bundle 'gmarik/vundle'
 " original repos on github
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
-Bundle 'xolox/vim-easytags'
-Bundle 'Valloric/YouCompleteMe'
+"Bundle 'xolox/vim-easytags'
+"Bundle 'Valloric/YouCompleteMe'
 Bundle 'spf13/PIV'
 " vim-scripts repos
 Bundle 'L9'
@@ -23,7 +23,7 @@ Bundle 'FuzzyFinder'
 " Bundle 'git://git.wincent.com/command-t.git'
 " ...
 
-filetype plugin indent on     " required!
+"filetype plugin indent on     " required!
 
 "
 " Brief help
