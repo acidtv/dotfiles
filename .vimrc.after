@@ -8,10 +8,22 @@ set number
 set guioptions-=T
 syntax on
 
+" enable mouse scrolling and clicking in iTerm
+set mouse=a
+
+" faster tab switching
+"map <C-k> gt
+"map <C-j> gT
+" faster buffer switching
+nnoremap <silent> <C-k> :bn<CR>
+nnoremap <silent> <C-j> :bp<CR>
+
 " expand vim command like :tabe
 set wildmenu
 set wildmode=full
 
+" Dont update ctags so fast
+set updatetime=5000
 
 let g:ctrlp_tabpage_position = 'ac'
 

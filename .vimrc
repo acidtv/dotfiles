@@ -11,14 +11,15 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
-Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
-"Bundle 'xolox/vim-easytags'
+Bundle 'xolox/vim-easytags'
 "Bundle 'Valloric/YouCompleteMe'
-Bundle 'spf13/PIV'
+"Bundle 'spf13/PIV'
+Bundle 'fholgado/minibufexpl.vim'
 " vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
+"Bundle 'L9'
+"Bundle 'FuzzyFinder'
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
 " ...

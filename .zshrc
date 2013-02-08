@@ -2,6 +2,12 @@
 setopt PROMPT_SUBST
 autoload -U colors && colors
 
+# load completion system
+autoload -U compinit && compinit
+
+# case insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
 PATH=/Users/alex/bin/:/Users/alex/.gem/ruby/1.8/bin:/usr/local/mysql/bin:/opt/subversion/bin:/usr/local/bin:$PATH
 
 function in_hg() {
@@ -27,6 +33,7 @@ RPROMPT='$(hg_prompt)'
 
 set -o vi
 setopt autocd
+setopt autopushd
 unsetopt correct_all
 
 alias ...='cd ../..'
@@ -36,6 +43,9 @@ alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 if [ -f `brew --prefix`/etc/autojump ]; then
   . `brew --prefix`/etc/autojump
 fi
+
+# dont update so fast
+set updatetime=4000
 
 # Bacward search in the shell history with <C-r>
 # bindkey ^r  history-incremental-search-backward
