@@ -8,6 +8,12 @@ autoload -U compinit && compinit
 # case insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
+# when pressing tab auto insert first match from menu
+setopt menu_complete
+
+# select file in completion menu
+zstyle ':completion:*' menu select
+
 PATH=/Users/alex/bin/:/Users/alex/.gem/ruby/1.8/bin:/usr/local/mysql/bin:/opt/subversion/bin:/usr/local/bin:$PATH
 
 function in_hg() {
@@ -38,14 +44,6 @@ unsetopt correct_all
 
 alias ...='cd ../..'
 alias l='ls -alhG'
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-
-if [ -f `brew --prefix`/etc/autojump ]; then
-  . `brew --prefix`/etc/autojump
-fi
-
-# dont update so fast
-set updatetime=4000
 
 # Bacward search in the shell history with <C-r>
 # bindkey ^r  history-incremental-search-backward
@@ -56,6 +54,11 @@ setopt hist_ignore_all_dups
 
 # [[ -z "$terminfo[cuu1]" ]] || bindkey -M viins "$terminfo[cuu1]" up-line-or-history
 # [[ "$terminfo[kcuu1]" == " O"* ]] && bindkey -M viins "${terminfo[kcuu1]/O/[}" up-line-or-history
+
+# run mac specific conf
+if [[ `uname` != 'Linux' ]]; then
+   ~/code/dotfiles/.zshrc.mac
+fi
 
 export SVN_EDITOR=vim
 export MAGICK_HOME="$HOME/bin/imagemagick/"

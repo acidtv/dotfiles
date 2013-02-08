@@ -8,30 +8,34 @@ set number
 set guioptions-=T
 syntax on
 
-" enable mouse scrolling and clicking in iTerm
-set mouse=a
+let mapleader=","
+set hidden		" allow buffers with unsaved changes
+set mouse=a		" enable mouse scrolling and clicking in iTerm
+set wildmenu	" expand vim commands like :tabe
+set wildmode=full
+set scrolloff=4	" keep 4 lines off the edges of the screen when scrolling
+set nobackup	" no backup file clutter
+set noswapfile	" never used it
+set nomodeline	" ignore vim modelines
 
 " faster tab switching
 "map <C-k> gt
 "map <C-j> gT
+
 " faster buffer switching
 nnoremap <silent> <C-k> :bn<CR>
 nnoremap <silent> <C-j> :bp<CR>
 
-" expand vim command like :tabe
-set wildmenu
-set wildmode=full
-
-" Dont update ctags so fast
-set updatetime=5000
+" show letters before buffer names
+let g:LustyJugglerShowKeys = 'a'
 
 let g:ctrlp_tabpage_position = 'ac'
 
 " Make ctrlp.vim open files in new tab
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<c-t>'],
-    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-    \ }
+"let g:ctrlp_prompt_mappings = {
+"    \ 'AcceptSelection("e")': ['<c-t>'],
+"    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+"    \ }
 
 " dont look at .hg dirs to decide where current working dir is, messes up with
 " subrepos
