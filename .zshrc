@@ -43,7 +43,9 @@ setopt autopushd
 unsetopt correct_all
 
 alias ...='cd ../..'
-alias l='ls -alhG'
+alias l='ls --color=always -alhG'
+alias b='cd -'
+alias pd='popd'
 
 # Bacward search in the shell history with <C-r>
 # bindkey ^r  history-incremental-search-backward

@@ -1,3 +1,4 @@
+set encoding=utf-8
 set gcr=a:blinkon0
 set autoindent
 set tabstop=4
@@ -17,6 +18,21 @@ set scrolloff=4	" keep 4 lines off the edges of the screen when scrolling
 set nobackup	" no backup file clutter
 set noswapfile	" never used it
 set nomodeline	" ignore vim modelines
+set laststatus=2 " always show statusline
+
+" load powerline
+"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+
+" Custom statusline
+hi User1 ctermbg=black ctermfg=grey
+set statusline=
+set statusline+=%1*  "switch to User1 highlight
+set statusline+=%F   "full filename
+set statusline+=%y   "filetype
+set statusline+=%=
+set statusline+=L%l:C%c   "line number and columns
+set statusline+=\ %P\    "percentage thru file
+
 
 " faster tab switching
 "map <C-k> gt
@@ -25,6 +41,9 @@ set nomodeline	" ignore vim modelines
 " faster buffer switching
 nnoremap <silent> <C-k> :bn<CR>
 nnoremap <silent> <C-j> :bp<CR>
+
+nmap <F8> :TagbarToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 " show letters before buffer names
 let g:LustyJugglerShowKeys = 'a'
