@@ -17,6 +17,7 @@ Bundle 'xolox/vim-easytags'
 Bundle 'sjbach/lusty'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
+Bundle 'rson/vim-bufstat'
 "Bundle 'Lokaltog/powerline'
 "Bundle 'Lokaltog/vim-powerline'
 
