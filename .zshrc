@@ -35,7 +35,7 @@ function hg_prompt() {
 }
 
 PS1="%{$fg_bold[red]%}%m %{$fg[cyan]%}%~%{$reset_color%}%(!.#.$) "
-RPROMPT='$(hg_prompt)'
+RPROMPT='$(hg_prompt) %T'
 
 set -o vi
 setopt autocd
@@ -43,7 +43,7 @@ setopt autopushd
 unsetopt correct_all
 
 alias ...='cd ../..'
-alias l='ls --color=always -alhG'
+alias l='ls --color=always -alh'
 alias b='cd -'
 alias pd='popd'
 
@@ -57,9 +57,13 @@ setopt hist_ignore_all_dups
 # [[ -z "$terminfo[cuu1]" ]] || bindkey -M viins "$terminfo[cuu1]" up-line-or-history
 # [[ "$terminfo[kcuu1]" == " O"* ]] && bindkey -M viins "${terminfo[kcuu1]/O/[}" up-line-or-history
 
+# debian fix: move cursor to end of line when browsing history
+[[ "$terminfo[kcuu1]" == ""* ]] && bindkey -M viins "${terminfo[kcuu1]/O/[}" up-line-or-history
+[[ "$terminfo[kcud1]" == ""* ]] && bindkey -M viins "${terminfo[kcud1]/O/[}" down-line-or-history
+
 # run mac specific conf
 if [[ `uname` != 'Linux' ]]; then
-   ~/code/dotfiles/.zshrc.mac
+   source ~/code/dotfiles/.zshrc.mac
 fi
 
 export SVN_EDITOR=vim
