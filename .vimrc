@@ -11,23 +11,25 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
-"Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
 Bundle 'xolox/vim-easytags'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 Bundle 'rson/vim-bufstat'
+Bundle 'scrooloose/syntastic'
+"Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'Lokaltog/powerline'
 "Bundle 'Lokaltog/vim-powerline'
 "Bundle 'sjbach/lusty'
-
 "Bundle 'Valloric/YouCompleteMe'
 "Bundle 'spf13/PIV'
 "Bundle 'fholgado/minibufexpl.vim'
 "Bundle 'techlivezheng/vim-plugin-minibufexpl'
+
 " vim-scripts repos
 "Bundle 'L9'
 "Bundle 'FuzzyFinder'
+
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
 " ...
