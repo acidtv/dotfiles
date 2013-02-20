@@ -42,6 +42,8 @@ set encoding=utf-8
 set gcr=a:blinkon0
 set autoindent
 set tabstop=4
+set shiftwidth=4
+set noexpandtab
 set nowrap
 set hlsearch
 set ignorecase
@@ -91,3 +93,9 @@ let g:ctrlp_tabpage_position = 'ac'
 " dont look at .hg dirs to decide where current working dir is, messes up with
 " subrepos
 let g:ctrlp_working_path_mode = '0'
+
+let s:extrarc = expand($HOME . '/.vimrc.local')
+if filereadable(s:extrarc)
+    exec ':so ' . s:extrarc
+endif
+
