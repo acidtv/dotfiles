@@ -66,6 +66,7 @@ if [[ `uname` != 'Linux' ]]; then
    source ~/code/dotfiles/.zshrc.mac
 fi
 
+export TERM=xterm-256color
 export SVN_EDITOR=vim
 export MAGICK_HOME="$HOME/bin/imagemagick/"
 export PATH="$MAGICK_HOME/bin:$PATH:/Users/alex/pear/bin"

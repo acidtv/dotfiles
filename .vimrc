@@ -11,21 +11,20 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
 Bundle 'xolox/vim-easytags'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 Bundle 'rson/vim-bufstat'
 Bundle 'scrooloose/syntastic'
-Bundle 'altercation/vim-colors-solarized'
+Bundle 'scrooloose/nerdcommenter'
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'Lokaltog/powerline'
 "Bundle 'Lokaltog/vim-powerline'
 "Bundle 'sjbach/lusty'
 "Bundle 'Valloric/YouCompleteMe'
 "Bundle 'spf13/PIV'
-"Bundle 'fholgado/minibufexpl.vim'
-"Bundle 'techlivezheng/vim-plugin-minibufexpl'
 
 " vim-scripts repos
 "Bundle 'L9'
@@ -36,6 +35,7 @@ Bundle 'altercation/vim-colors-solarized'
 " ...
 
 "filetype plugin indent on     " required!
+
 " NOTE: comments after Bundle command are not allowed..
 
 set encoding=utf-8
@@ -46,6 +46,7 @@ set shiftwidth=4
 set noexpandtab
 set nowrap
 set hlsearch
+set incsearch
 set ignorecase
 set number
 set guioptions-=T
@@ -63,16 +64,20 @@ set nomodeline	" ignore vim modelines
 set laststatus=2 " always show statusline
 "set clipboard+=unnamed " use system clipboard for yanking text
 
+colo solarized
+
 " Custom statusline
 let g:bufstat_active_hl_group = "Comment"
-let g:bufstat_inactive_hl_group = "Statement"
+"let g:bufstat_inactive_hl_group = "Statement"
+let g:bufstat_inactive_hl_group = "LineNr"
 let g:bufstat_number_before_bufname = 0
 let g:bufstat_alternate_list_char = ''
 let g:bufstat_surround_flags = ':'
 
 set statusline=
 set statusline+=%=	 "the right part
-set statusline+=L%l:C%c   "line number and columns
+set statusline+=%m	 "modified flag
+set statusline+=\ L%l:C%c   "line number and columns
 set statusline+=\ %P\    "percentage thru file
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -86,7 +91,7 @@ nmap <F8> :TagbarOpenAutoClose<CR>
 map <C-n> :NERDTreeToggle<CR>
 
 " show letters before buffer names
-let g:LustyJugglerShowKeys = 'a'
+"let g:LustyJugglerShowKeys = 'a'
 
 let g:ctrlp_tabpage_position = 'ac'
 
