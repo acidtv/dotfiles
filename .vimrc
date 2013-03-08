@@ -27,6 +27,7 @@ Bundle 'scrooloose/nerdcommenter'
 "Bundle 'spf13/PIV'
 
 " vim-scripts repos
+Bundle 'AutoClose'
 "Bundle 'L9'
 "Bundle 'FuzzyFinder'
 
