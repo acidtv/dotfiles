@@ -34,7 +34,7 @@ Bundle 'scrooloose/nerdcommenter'
 " Bundle 'git://git.wincent.com/command-t.git'
 " ...
 
-"filetype plugin indent on     " required!
+filetype plugin indent on     " required!
 
 " NOTE: comments after Bundle command are not allowed..
 
@@ -99,6 +99,11 @@ let g:ctrlp_tabpage_position = 'ac'
 " subrepos
 let g:ctrlp_working_path_mode = '0'
 
+" let easytags look for tags file in project
+set tags=./.tags;
+let g:easytags_dynamic_files = 1
+
+" include local vim conf
 let s:extrarc = expand($HOME . '/.vimrc.local')
 if filereadable(s:extrarc)
     exec ':so ' . s:extrarc
