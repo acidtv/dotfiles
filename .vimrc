@@ -88,11 +88,16 @@ set statusline+=%*
 nnoremap <silent> <C-k> :bn<CR>
 nnoremap <silent> <C-j> :bp<CR>
 
-nmap <F8> :TagbarOpenAutoClose<CR>
 map <C-n> :NERDTreeToggle<CR>
 
-" show letters before buffer names
-"let g:LustyJugglerShowKeys = 'a'
+" map <leader>/ to turn off search highlight
+nnoremap <Leader>/ :noh<CR>
+
+" tagbar autofocus and autoclose
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_autoclose = 1
+let g:tagbar_autofocus = 1
+let g:tagbar_iconchars = ['▾', '▸']
 
 let g:ctrlp_tabpage_position = 'ac'
 
@@ -103,6 +108,9 @@ let g:ctrlp_working_path_mode = '0'
 " let easytags look for tags file in project
 set tags=./.tags;
 let g:easytags_dynamic_files = 1
+" disable auto update because it seems to make vim lag
+let g:easytags_auto_update = 0
+let g:easytags_auto_highlight = 0
 
 " include local vim conf
 let s:extrarc = expand($HOME . '/.vimrc.local')
