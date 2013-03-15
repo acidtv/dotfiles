@@ -19,6 +19,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'rson/vim-bufstat'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'msanders/snipmate.vim'
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'Lokaltog/powerline'
 "Bundle 'Lokaltog/vim-powerline'
@@ -93,6 +94,9 @@ map <C-n> :NERDTreeToggle<CR>
 " map <leader>/ to turn off search highlight
 nnoremap <Leader>/ :noh<CR>
 
+" set snippet dir
+let g:snippets_dir = '~/code/dotfiles/vimsnippets/'
+
 " tagbar autofocus and autoclose
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_autoclose = 1
@@ -109,6 +113,7 @@ let g:ctrlp_working_path_mode = '0'
 set tags=./.tags;
 let g:easytags_dynamic_files = 1
 " disable auto update because it seems to make vim lag
+" (use :UpdateTags -R ./*)
 let g:easytags_auto_update = 0
 let g:easytags_auto_highlight = 0
 
