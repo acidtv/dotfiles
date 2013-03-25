@@ -46,6 +46,7 @@ alias ...='cd ../..'
 alias l='ls --color=always -alh'
 alias b='cd -'
 alias pd='popd'
+alias hgd='hg di | view -'
 
 # Bacward search in the shell history with <C-r>
 # bindkey ^r  history-incremental-search-backward
