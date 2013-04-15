@@ -87,8 +87,8 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " faster buffer switching
-nnoremap <silent> <C-k> :bn<CR>
-nnoremap <silent> <C-j> :bp<CR>
+nnoremap <silent> <C-l> :bn<CR>
+nnoremap <silent> <C-h> :bp<CR>
 
 map <C-n> :NERDTreeToggle<CR>
 
