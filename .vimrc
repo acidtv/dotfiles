@@ -118,6 +118,15 @@ let g:easytags_dynamic_files = 1
 let g:easytags_auto_update = 0
 let g:easytags_auto_highlight = 0
 
+" remove trailing whitespace before saving
+fun! <SID>StripTrailingWhitespaces()
+	let l = line(".")
+	let c = col(".")
+	%s/\s\+$//e
+	call cursor(l, c)
+endfun
+autocmd FileType php,html,smarty,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
 " include local vim conf
 let s:extrarc = expand($HOME . '/.vimrc.local')
 if filereadable(s:extrarc)
