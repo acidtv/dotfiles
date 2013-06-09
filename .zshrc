@@ -34,6 +34,11 @@ function hg_prompt() {
     fi
 }
 
+# fix find!
+ffind() {
+	find . -name "*$1*"
+}
+
 PS1="%{$fg_bold[red]%}%m %{$fg[cyan]%}%~%{$reset_color%}%(!.#.$) "
 RPROMPT='$(hg_prompt) %T'
 
