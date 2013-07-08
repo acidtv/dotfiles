@@ -16,21 +16,10 @@ zstyle ':completion:*' menu select
 
 PATH=/Users/alex/bin/:/Users/alex/.gem/ruby/1.8/bin:/usr/local/mysql/bin:/opt/subversion/bin:/usr/local/bin:$PATH
 
-function in_hg() {
-	hg su > /dev/null 2>&1
-	result=$?
-    if [[ $result == 0 ]]; then
-        echo 1
-    fi
-}
-
-function hg_branch() {
-	hg branch
-}
-
 function hg_prompt() {
-    if [ $(in_hg) ]; then
-		echo "☿:%{$fg_bold[blue]%}$(hg_branch)%{$reset_color%}"
+	branch=`hg branch 2>/dev/null`
+    if [ $branch ]; then
+		echo "☿:%{$fg_bold[blue]%}$branch%{$reset_color%}"
     fi
 }
 
