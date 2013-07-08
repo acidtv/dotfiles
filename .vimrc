@@ -16,23 +16,18 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'xolox/vim-easytags'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
-Bundle 'rson/vim-bufstat'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-markdown'
 Bundle 'mileszs/ack.vim'
-"Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'Lokaltog/powerline'
-"Bundle 'Lokaltog/vim-powerline'
-"Bundle 'sjbach/lusty'
-"Bundle 'Valloric/YouCompleteMe'
-"Bundle 'spf13/PIV'
+"Bundle 'rson/vim-bufstat'
+Bundle 'acidtv/vim-airline'
+Bundle 'bling/vim-bufferline'
+Bundle 'phleet/vim-mercenary'
 
 " vim-scripts repos
 Bundle 'AutoClose'
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
 
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
@@ -70,22 +65,30 @@ set laststatus=2 " always show statusline
 
 colo solarized
 
-" Custom statusline
-let g:bufstat_active_hl_group = "Comment"
-"let g:bufstat_inactive_hl_group = "Statement"
-let g:bufstat_inactive_hl_group = "LineNr"
-let g:bufstat_number_before_bufname = 0
-let g:bufstat_alternate_list_char = ''
-let g:bufstat_surround_flags = ':'
+" Configure statusline plugin
+let g:airline_theme='badwolf'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+"let g:bufferline_echo = 1
+let g:airline_enable_bufferline = 0
 
-set statusline=
-set statusline+=%=	 "the right part
-set statusline+=%m	 "modified flag
-set statusline+=\ L%l:C%c   "line number and columns
-set statusline+=\ %P\    "percentage thru file
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"let g:bufstat_active_hl_group = "Comment"
+"let g:bufstat_inactive_hl_group = "LineNr"
+"let g:bufstat_number_before_bufname = 0
+"let g:bufstat_alternate_list_char = ''
+"let g:bufstat_surround_flags = ':'
+"
+"set statusline=
+"set statusline+=%=	 "the right part
+"set statusline+=%m	 "modified flag
+"set statusline+=\ L%l:C%c   "line number and columns
+"set statusline+=\ %P\    "percentage thru file
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+" only check for php errors, not style"
+let g:syntastic_php_checkers=['php']
 
 " faster buffer switching
 nnoremap <silent> <C-l> :bn<CR>
@@ -133,4 +136,19 @@ let s:extrarc = expand($HOME . '/.vimrc.local')
 if filereadable(s:extrarc)
     exec ':so ' . s:extrarc
 endif
+
+" Mercurial branch
+function! MercurialBranch()
+	let output = Strip(system('hg branch'))
+
+	if v:shell_error
+		return '[none]'
+	endif
+
+	return output
+endfunction
+
+function! Strip(input_string)
+	return substitute(a:input_string, '^\s*\(.\{-}\)\s*\n$', '\1', '')
+endfunction
 
