@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  tasks:
+  - name: packages
+    apt: name=$item state=installed
+    with_items:
+    - vim
+    - mercurial
+    - git
+    - tmux
+    - zsh
+    - ack-grep
+  - name: symlinks
+    file: src=$curdir/$item path=$home/$item state=link
+    with_items:
+    - .vimrc
+    - .tmux.conf
+    - .gitconfig
+    - .zshrc
+
+
