@@ -13,7 +13,6 @@ Bundle 'gmarik/vundle'
 " original repos on github
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
-Bundle 'xolox/vim-easytags'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/syntastic'
@@ -67,8 +66,10 @@ colo solarized
 
 " Configure statusline plugin
 let g:airline_theme='badwolf'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '◀'
+"let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '◀'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 "let g:bufferline_echo = 1
 let g:airline_enable_bufferline = 0
 
@@ -95,6 +96,7 @@ nnoremap <silent> <C-l> :bn<CR>
 nnoremap <silent> <C-h> :bp<CR>
 
 map <C-n> :NERDTreeToggle<CR>
+map <C-b> :CtrlPBuffer<CR>
 
 " map <leader>/ to turn off search highlight
 nnoremap <Leader>/ :noh<CR>
@@ -136,6 +138,13 @@ let s:extrarc = expand($HOME . '/.vimrc.local')
 if filereadable(s:extrarc)
     exec ':so ' . s:extrarc
 endif
+
+" Update tags file for php
+function! UpdateTags()
+	call system("ctags -R -f .tags --exclude=.hg --tag-relative=yes --PHP-kinds=+cf-v --regex-PHP='/abstract\s+class\s+([^ ]+)/\1/c/' --regex-PHP='/interface\s+([^ ]+)/\1/c/' --regex-PHP='/(public\s+|static\s+|abstract\s+|protected\s+|private\s+)function\s+\&?\s*([^ ()]+)/\2/f/' ./*")
+	echo 'Tagsfile updated'
+endfunction
+command! UpdateTags call UpdateTags()
 
 " Mercurial branch
 function! MercurialBranch()
