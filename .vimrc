@@ -95,6 +95,9 @@ let g:syntastic_php_checkers=['php']
 nnoremap <silent> <C-l> :bn<CR>
 nnoremap <silent> <C-h> :bp<CR>
 
+noremap <C-y> 5<C-y>
+noremap <C-e> 5<C-e>
+
 map <C-n> :NERDTreeToggle<CR>
 map <C-b> :CtrlPBuffer<CR>
 
@@ -161,3 +164,13 @@ function! Strip(input_string)
 	return substitute(a:input_string, '^\s*\(.\{-}\)\s*\n$', '\1', '')
 endfunction
 
+function! Hgdiff()
+	vnew 
+	silent r !hg diff
+	0
+	set filetype=diff
+	setlocal buftype=nofile
+	setlocal noswapfile
+	wincmd w
+endfunction
+command! Hgdiff call Hgdiff()

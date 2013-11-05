@@ -66,6 +66,7 @@ fi
 export TERM=xterm-256color
 export SVN_EDITOR=vim
 export EDITOR=vim
+export HGEDITOR="vim +Hgdiff"
 export MAGICK_HOME="$HOME/bin/imagemagick/"
 export PATH="$MAGICK_HOME/bin:$PATH:/Users/alex/pear/bin"
 export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"
