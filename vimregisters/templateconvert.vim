@@ -1,6 +1,6 @@
 
 " fix array var
-let @a='@bf.cw['wdiwF'P'
+let @a='@bf.cw[''wdiwF''P'
 
 " fix brackets
 let @b='cl<?= f}cl ?>2F?'
