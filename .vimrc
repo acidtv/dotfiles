@@ -24,6 +24,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'acidtv/vim-airline'
 Bundle 'bling/vim-bufferline'
 Bundle 'phleet/vim-mercenary'
+Bundle 'jnwhiteh/vim-golang'
 
 " vim-scripts repos
 Bundle 'AutoClose'
