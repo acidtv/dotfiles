@@ -40,9 +40,11 @@ alias ...='cd ../..'
 alias l='ls --color=always -alh'
 alias b='cd -'
 alias pd='popd'
+alias svim='sudo vim'
+
 alias hgd='hg di | view -'
 alias hgs='hg st -S'
-alias svim='sudo vim'
+alias hgio='hg in; hg out'
 
 # Bacward search in the shell history with <C-r>
 # bindkey ^r  history-incremental-search-backward
