@@ -28,7 +28,7 @@ ffind() {
 	find . -name "*$1*"
 }
 
-PS1="%{$fg_bold[red]%}%m %{$fg[cyan]%}%~%{$reset_color%}%(!.#.$) "
+PS1='%{$fg_bold[red]%}%m %{$fg[cyan]%}%$(( $COLUMNS/25 ))c%{$reset_color%}%(!.#.$) '
 RPROMPT='$(hg_prompt) %T'
 
 set -o vi
