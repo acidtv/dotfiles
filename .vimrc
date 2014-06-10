@@ -81,20 +81,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
-"let g:bufstat_active_hl_group = "Comment"
-"let g:bufstat_inactive_hl_group = "LineNr"
-"let g:bufstat_number_before_bufname = 0
-"let g:bufstat_alternate_list_char = ''
-"let g:bufstat_surround_flags = ':'
-"
-"set statusline=
-"set statusline+=%=	 "the right part
-"set statusline+=%m	 "modified flag
-"set statusline+=\ L%l:C%c   "line number and columns
-"set statusline+=\ %P\    "percentage thru file
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+" tell signify to check subrepos
+let g:signify_diffoptions = { 'hg': '-S' }
+let g:signify_vcs_list = [ 'hg' ]
 
 " only check for php errors, not style"
 let g:syntastic_php_checkers=['php']
