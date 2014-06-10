@@ -6,31 +6,34 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " My Bundles here:
 "
 " original repos on github
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'msanders/snipmate.vim'
-Bundle 'tpope/vim-markdown'
-Bundle 'mileszs/ack.vim'
-"Bundle 'rson/vim-bufstat'
-Bundle 'acidtv/vim-airline'
-Bundle 'bling/vim-bufferline'
-Bundle 'phleet/vim-mercenary'
-Bundle 'jnwhiteh/vim-golang'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'msanders/snipmate.vim'
+Plugin 'tpope/vim-markdown'
+Plugin 'mileszs/ack.vim'
+"Plugin 'rson/vim-bufstat'
+"Plugin 'acidtv/vim-airline'
+Plugin 'bling/vim-airline'
+"Plugin 'bling/vim-bufferline'
+Plugin 'phleet/vim-mercenary'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'mhinz/vim-signify'
+Plugin 'ludovicchabant/vim-lawrencium'
 
 " vim-scripts repos
-Bundle 'AutoClose'
+Plugin 'AutoClose'
 
 " non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
+" Plugin 'git://git.wincent.com/command-t.git'
 " ...
 
 filetype plugin indent on     " required!
@@ -64,15 +67,19 @@ set laststatus=2 " always show statusline
 "set clipboard+=unnamed " use system clipboard for yanking text
 
 colo solarized
+highlight SignColumn ctermbg=lightgrey
 
 " Configure statusline plugin
-let g:airline_theme='badwolf'
+let g:airline_theme='solarized'
 "let g:airline_left_sep = '▶'
 "let g:airline_right_sep = '◀'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 "let g:bufferline_echo = 1
-let g:airline_enable_bufferline = 0
+"let g:airline_enable_bufferline = 0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 
 "let g:bufstat_active_hl_group = "Comment"
 "let g:bufstat_inactive_hl_group = "LineNr"
@@ -96,6 +103,7 @@ let g:syntastic_php_checkers=['php']
 nnoremap <silent> <C-l> :bn<CR>
 nnoremap <silent> <C-h> :bp<CR>
 
+" move up and down 5 rows at a time
 noremap <C-y> 5<C-y>
 noremap <C-e> 5<C-e>
 
@@ -113,6 +121,9 @@ nmap <F8> :TagbarToggle<CR>
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 let g:tagbar_iconchars = ['▾', '▸']
+
+" only show function names in tagbar
+let g:tagbar_type_php = { 'ctagstype' : 'php', 'kinds' : [ 'f:function' ] }
 
 let g:ctrlp_tabpage_position = 'ac'
 
