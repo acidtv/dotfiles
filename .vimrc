@@ -25,7 +25,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'bling/vim-airline'
 "Plugin 'bling/vim-bufferline'
 Plugin 'phleet/vim-mercenary'
-Plugin 'jnwhiteh/vim-golang'
+"Plugin 'jnwhiteh/vim-golang'
 Plugin 'mhinz/vim-signify'
 Plugin 'ludovicchabant/vim-lawrencium'
 
