@@ -24,10 +24,12 @@ Plugin 'mileszs/ack.vim'
 "Plugin 'acidtv/vim-airline'
 Plugin 'bling/vim-airline'
 "Plugin 'bling/vim-bufferline'
-Plugin 'phleet/vim-mercenary'
+"Plugin 'phleet/vim-mercenary'
 "Plugin 'jnwhiteh/vim-golang'
 Plugin 'mhinz/vim-signify'
 Plugin 'ludovicchabant/vim-lawrencium'
+Plugin 'vimwiki/vimwiki'
+Plugin 'spiiph/vim-space'
 
 " vim-scripts repos
 Plugin 'AutoClose'
@@ -87,6 +89,10 @@ let g:signify_vcs_list = [ 'hg' ]
 
 " only check for php errors, not style"
 let g:syntastic_php_checkers=['php']
+
+" vimwiki
+let g:vimwiki_hl_cb_checked = 1
+nmap <leader>tt <Plug>VimwikiToggleListItem
 
 " faster buffer switching
 nnoremap <silent> <C-l> :bn<CR>
