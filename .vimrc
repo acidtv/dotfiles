@@ -20,16 +20,12 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'msanders/snipmate.vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'mileszs/ack.vim'
-"Plugin 'rson/vim-bufstat'
-"Plugin 'acidtv/vim-airline'
 Plugin 'bling/vim-airline'
-"Plugin 'bling/vim-bufferline'
-"Plugin 'phleet/vim-mercenary'
-"Plugin 'jnwhiteh/vim-golang'
 Plugin 'mhinz/vim-signify'
 Plugin 'ludovicchabant/vim-lawrencium'
 Plugin 'vimwiki/vimwiki'
 Plugin 'spiiph/vim-space'
+Plugin 'terryma/vim-multiple-cursors'
 
 " vim-scripts repos
 Plugin 'AutoClose'
@@ -67,28 +63,30 @@ set noswapfile	" never used it
 set nomodeline	" ignore vim modelines
 set laststatus=2 " always show statusline
 "set clipboard+=unnamed " use system clipboard for yanking text
+" no delays for ESC please
+set timeoutlen=100 ttimeoutlen=0
 
 colo solarized
 highlight SignColumn ctermbg=lightgrey
 
 " Configure statusline plugin
 let g:airline_theme='solarized'
-"let g:airline_left_sep = '▶'
-"let g:airline_right_sep = '◀'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-"let g:bufferline_echo = 1
-"let g:airline_enable_bufferline = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#show_message = 0
 
 " tell signify to check subrepos
 let g:signify_diffoptions = { 'hg': '-S' }
 let g:signify_vcs_list = [ 'hg' ]
 
-" only check for php errors, not style"
+" only check for php errors, not style
 let g:syntastic_php_checkers=['php']
+" always add error locations to loc_list so we can jump to them
+let g:syntastic_always_populate_loc_list = 1
 
 " vimwiki
 let g:vimwiki_hl_cb_checked = 1
@@ -97,6 +95,9 @@ nmap <leader>tt <Plug>VimwikiToggleListItem
 " faster buffer switching
 nnoremap <silent> <C-l> :bn<CR>
 nnoremap <silent> <C-h> :bp<CR>
+
+" auto fix indent after pasting
+nnoremap p p=`]
 
 " move up and down 5 rows at a time
 noremap <C-y> 5<C-y>
