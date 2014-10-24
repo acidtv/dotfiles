@@ -64,7 +64,7 @@ set nomodeline	" ignore vim modelines
 set laststatus=2 " always show statusline
 "set clipboard+=unnamed " use system clipboard for yanking text
 " no delays for ESC please
-set timeoutlen=100 ttimeoutlen=0
+set timeoutlen=150 ttimeoutlen=0
 
 colo solarized
 highlight SignColumn ctermbg=lightgrey
@@ -111,6 +111,9 @@ nnoremap <Leader>/ :noh<CR>
 
 " set snippet dir
 let g:snippets_dir = '~/code/dotfiles/vimsnippets/'
+
+" set ack options
+let g:ack_default_options = " -s -H --nocolor --nogroup --column --ignore-file=is:.tags"
 
 " tagbar autofocus and autoclose
 nmap <F8> :TagbarToggle<CR>
