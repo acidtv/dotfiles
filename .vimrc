@@ -64,7 +64,7 @@ set nomodeline	" ignore vim modelines
 set laststatus=2 " always show statusline
 "set clipboard+=unnamed " use system clipboard for yanking text
 " no delays for ESC please
-set timeoutlen=100 ttimeoutlen=0
+set timeoutlen=200 ttimeoutlen=0
 
 colo solarized
 highlight SignColumn ctermbg=lightgrey
