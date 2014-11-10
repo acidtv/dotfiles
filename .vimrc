@@ -26,6 +26,7 @@ Plugin 'ludovicchabant/vim-lawrencium'
 Plugin 'vimwiki/vimwiki'
 Plugin 'spiiph/vim-space'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'Shougo/vimproc.vim'
 
 " vim-scripts repos
 Plugin 'AutoClose'
