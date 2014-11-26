@@ -12,7 +12,8 @@ Plugin 'gmarik/vundle'
 "
 " original repos on github
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'kien/ctrlp.vim'
+""Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/syntastic'
