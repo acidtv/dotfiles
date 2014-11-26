@@ -31,6 +31,7 @@ Plugin 'Shougo/vimproc.vim'
 
 " vim-scripts repos
 Plugin 'AutoClose'
+Plugin 'taglist.vim'
 
 " non github repos
 " Plugin 'git://git.wincent.com/command-t.git'

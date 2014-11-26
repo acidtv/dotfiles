@@ -1,0 +1,14 @@
+[ui]
+verbose = True
+merge = internal:merge
+
+[bookmarks]
+track.current = True
+
+[extensions]
+pager =
+graphlog =
+mercurial_keyring =
+
+[pager]
+pager = LESS='FRX' less
