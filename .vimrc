@@ -106,7 +106,10 @@ nnoremap p p=`]
 noremap <C-y> 5<C-y>
 noremap <C-e> 5<C-e>
 
-map <C-n> :NERDTreeToggle<CR>
+" tag jump. display list of tags if multiple found
+nnoremap <c-]> g<c-]>
+
+map <C-t> :NERDTreeToggle<CR>
 map <C-b> :CtrlPBuffer<CR>
 
 " map <leader>/ to turn off search highlight
