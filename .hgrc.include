@@ -9,6 +9,7 @@ track.current = True
 pager =
 graphlog =
 mercurial_keyring =
+color = 
 
 [pager]
 pager = LESS='FRX' less

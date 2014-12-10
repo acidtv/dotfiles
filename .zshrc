@@ -19,7 +19,8 @@ PATH=/home/alex/bin:/Users/alex/bin/:/Users/alex/.gem/ruby/1.8/bin:/usr/local/my
 function hg_prompt() {
 	branch=`hg branch 2>/dev/null`
     if [ $branch ]; then
-		echo "☿:%{$fg_bold[blue]%}$branch%{$reset_color%}"
+		bookmark=`hg book | grep "*" | cut -d " " -f 3`
+		echo "☿:%{$fg_bold[blue]%}$bookmark:$branch%{$reset_color%}"
     fi
 }
 
