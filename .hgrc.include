@@ -10,6 +10,7 @@ pager =
 graphlog =
 mercurial_keyring =
 color = 
+shelve =
 
 [pager]
 pager = LESS='FRX' less
