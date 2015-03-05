@@ -14,7 +14,7 @@ setopt menu_complete
 # select file in completion menu
 zstyle ':completion:*' menu select
 
-PATH=/home/alex/bin:/Users/alex/bin/:/Users/alex/.gem/ruby/1.8/bin:/usr/local/mysql/bin:/opt/subversion/bin:/usr/local/bin:$PATH
+PATH=/home/alex/bin:/usr/local/mysql/bin:/usr/local/bin:$PATH
 
 function hg_prompt() {
 	branch=`hg branch 2>/dev/null`
