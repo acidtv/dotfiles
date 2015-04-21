@@ -111,6 +111,7 @@ nnoremap <c-]> g<c-]>
 
 map <C-t> :NERDTreeToggle<CR>
 map <C-b> :CtrlPBuffer<CR>
+map <C-g> :CtrlPBufTag<CR>
 
 " map <leader>/ to turn off search highlight
 nnoremap <Leader>/ :noh<CR>
