@@ -43,7 +43,7 @@ alias b='cd -'
 alias pd='popd'
 alias svim='sudo vim'
 
-alias hgd='hg di | view -'
+alias hgd='hg diff -p | view -'
 alias hgs='hg st -S'
 alias hgio='hg in; hg out'
 

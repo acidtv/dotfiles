@@ -63,7 +63,8 @@ set wildmode=full
 set scrolloff=4	" keep 4 lines off the edges of the screen when scrolling
 set nobackup	" no backup file clutter
 set noswapfile	" never used it
-set nomodeline	" ignore vim modelines
+"set nomodeline	" ignore vim modelines
+set modeline
 set laststatus=2 " always show statusline
 "set clipboard+=unnamed " use system clipboard for yanking text
 " no delays for ESC please
@@ -100,7 +101,7 @@ nnoremap <silent> <C-l> :bn<CR>
 nnoremap <silent> <C-h> :bp<CR>
 
 " auto fix indent after pasting
-nnoremap p p=`]
+nnoremap p p=`]g;
 
 " move up and down 5 rows at a time
 noremap <C-y> 5<C-y>
@@ -184,7 +185,7 @@ endfunction
 
 function! Hgdiff()
 	vnew 
-	silent r !hg diff
+	silent r !hg diff -p
 	0
 	set filetype=diff
 	setlocal buftype=nofile
