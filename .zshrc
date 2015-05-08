@@ -14,7 +14,7 @@ setopt menu_complete
 # select file in completion menu
 zstyle ':completion:*' menu select
 
-PATH=/home/alex/bin:/usr/local/mysql/bin:/usr/local/bin:$PATH
+PATH=/home/alex/bin:/usr/local/mysql/bin:/usr/local/bin:/home/alex/.linuxbrew/bin:$PATH
 
 function hg_prompt() {
 	branch=`hg branch 2>/dev/null`
@@ -73,3 +73,6 @@ export HGEDITOR="vim +Hgdiff"
 export MAGICK_HOME="$HOME/bin/imagemagick/"
 export PATH="$MAGICK_HOME/bin:$PATH:/Users/alex/pear/bin"
 export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"
+
+# include fzf (https://github.com/junegunn/fzf) keyboard shortcuts
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
