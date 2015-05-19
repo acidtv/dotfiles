@@ -28,6 +28,8 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'spiiph/vim-space'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Shougo/vimproc.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 
 " vim-scripts repos
 Plugin 'AutoClose'
