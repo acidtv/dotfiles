@@ -116,6 +116,9 @@ map <C-t> :NERDTreeToggle<CR>
 map <C-b> :CtrlPBuffer<CR>
 map <C-g> :CtrlPBufTag<CR>
 
+" Make NERDTree ignore .pyc files
+let NERDTreeIgnore = ['\.pyc$']
+
 " map <leader>/ to turn off search highlight
 nnoremap <Leader>/ :noh<CR>
 
@@ -139,6 +142,10 @@ let g:ctrlp_tabpage_position = 'ac'
 " dont look at .hg dirs to decide where current working dir is, messes up with
 " subrepos
 let g:ctrlp_working_path_mode = '0'
+
+let g:ctrlp_buftag_types = {
+    \ 'php'     : '--PHP-kinds=+cf-v',
+\ }
 
 " let easytags look for tags file in project
 set tags=./.tags;
