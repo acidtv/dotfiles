@@ -31,6 +31,9 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'kshenoy/vim-signature'
+Plugin 'vim-scripts/argtextobj.vim'
+"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Shougo/neocomplete.vim'
 
 " vim-scripts repos
 Plugin 'AutoClose'
@@ -73,8 +76,13 @@ set laststatus=2 " always show statusline
 " no delays for ESC please
 set timeoutlen=150 ttimeoutlen=0
 
+" testing with cursorline
+set cursorline
+
 colo solarized
 highlight SignColumn ctermbg=lightgrey
+
+let g:ycm_collect_identifiers_from_tags_files = 0
 
 " Configure statusline plugin
 let g:airline_theme='solarized'
