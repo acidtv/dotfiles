@@ -1,0 +1,5 @@
+
+send-keys -t 1 C-c
+send-keys -t 1 Up
+send-keys -t 1 Enter
+

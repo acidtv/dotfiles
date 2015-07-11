@@ -28,6 +28,12 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'spiiph/vim-space'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Shougo/vimproc.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'kshenoy/vim-signature'
+Plugin 'vim-scripts/argtextobj.vim'
+"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Shougo/neocomplete.vim'
 
 " vim-scripts repos
 Plugin 'AutoClose'
@@ -63,14 +69,20 @@ set wildmode=full
 set scrolloff=4	" keep 4 lines off the edges of the screen when scrolling
 set nobackup	" no backup file clutter
 set noswapfile	" never used it
-set nomodeline	" ignore vim modelines
+"set nomodeline	" ignore vim modelines
+set modeline
 set laststatus=2 " always show statusline
 "set clipboard+=unnamed " use system clipboard for yanking text
 " no delays for ESC please
 set timeoutlen=150 ttimeoutlen=0
 
+" testing with cursorline
+set cursorline
+
 colo solarized
 highlight SignColumn ctermbg=lightgrey
+
+let g:ycm_collect_identifiers_from_tags_files = 0
 
 " Configure statusline plugin
 let g:airline_theme='solarized'
@@ -100,7 +112,7 @@ nnoremap <silent> <C-l> :bn<CR>
 nnoremap <silent> <C-h> :bp<CR>
 
 " auto fix indent after pasting
-nnoremap p p=`]
+nnoremap p p=`]g;
 
 " move up and down 5 rows at a time
 noremap <C-y> 5<C-y>
@@ -111,6 +123,10 @@ nnoremap <c-]> g<c-]>
 
 map <C-t> :NERDTreeToggle<CR>
 map <C-b> :CtrlPBuffer<CR>
+map <C-g> :CtrlPBufTag<CR>
+
+" Make NERDTree ignore .pyc files
+let NERDTreeIgnore = ['\.pyc$']
 
 " map <leader>/ to turn off search highlight
 nnoremap <Leader>/ :noh<CR>
@@ -135,6 +151,10 @@ let g:ctrlp_tabpage_position = 'ac'
 " dont look at .hg dirs to decide where current working dir is, messes up with
 " subrepos
 let g:ctrlp_working_path_mode = '0'
+
+let g:ctrlp_buftag_types = {
+    \ 'php'     : '--PHP-kinds=+cf-v',
+\ }
 
 " let easytags look for tags file in project
 set tags=./.tags;
@@ -183,7 +203,7 @@ endfunction
 
 function! Hgdiff()
 	vnew 
-	silent r !hg diff
+	silent r !hg diff -p
 	0
 	set filetype=diff
 	setlocal buftype=nofile
