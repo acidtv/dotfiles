@@ -73,3 +73,4 @@ export HGEDITOR="vim +Hgdiff"
 export MAGICK_HOME="$HOME/bin/imagemagick/"
 export PATH="$MAGICK_HOME/bin:$PATH:/Users/alex/pear/bin"
 export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"
+export PYTHONPATH=$PYTHONPATH:/home/alex/code/caffe/python
