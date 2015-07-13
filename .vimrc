@@ -33,7 +33,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'kshenoy/vim-signature'
 Plugin 'vim-scripts/argtextobj.vim'
 "Plugin 'Valloric/YouCompleteMe'
-Plugin 'Shougo/neocomplete.vim'
+"Plugin 'Shougo/neocomplete.vim'
+Plugin 'thinca/vim-ref'
 
 " vim-scripts repos
 Plugin 'AutoClose'

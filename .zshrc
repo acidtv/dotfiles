@@ -51,6 +51,9 @@ alias hgio='hg in; hg out'
 # bindkey ^r  history-incremental-search-backward
 setopt hist_ignore_all_dups
 
+# set timeout shorter so switching between vi modes is faster
+export KEYTIMEOUT=2
+
 # bindkey '\e[A' history-beginning-search-backward
 # bindkey '\e[B' history-beginning-search-forward
 
