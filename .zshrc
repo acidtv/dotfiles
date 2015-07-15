@@ -45,7 +45,7 @@ alias svim='sudo vim'
 
 alias hgd='hg diff -p | view -'
 alias hgs='hg st -S'
-alias hgio='hg in; hg out'
+alias hgio='echo "Incoming:"; hg in; echo "Outgoing:"; hg out'
 
 # Bacward search in the shell history with <C-r>
 # bindkey ^r  history-incremental-search-backward
