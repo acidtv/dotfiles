@@ -38,8 +38,8 @@ Plugin 'thinca/vim-ref'
 "Plugin 'junegunn/vim-pseudocl'
 "Plugin 'junegunn/vim-oblique'
 "Plugin 'easymotion/vim-easymotion'
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'haya14busa/incsearch-fuzzy.vim'
+"Plugin 'haya14busa/incsearch.vim'
+"Plugin 'haya14busa/incsearch-fuzzy.vim'
 
 " vim-scripts repos
 Plugin 'AutoClose'
@@ -105,7 +105,7 @@ let g:signify_diffoptions = { 'hg': '-S' }
 let g:signify_vcs_list = [ 'hg' ]
 
 " incsearch config
-map z/ <Plug>(incsearch-fuzzy-/)
+"map z/ <Plug>(incsearch-fuzzy-/)
 
 " only check for php errors, not style
 let g:syntastic_php_checkers=['php']
