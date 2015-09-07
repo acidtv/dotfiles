@@ -33,7 +33,13 @@ Plugin 'tpope/vim-surround'
 Plugin 'kshenoy/vim-signature'
 Plugin 'vim-scripts/argtextobj.vim'
 "Plugin 'Valloric/YouCompleteMe'
-Plugin 'Shougo/neocomplete.vim'
+"Plugin 'Shougo/neocomplete.vim'
+Plugin 'thinca/vim-ref'
+"Plugin 'junegunn/vim-pseudocl'
+"Plugin 'junegunn/vim-oblique'
+"Plugin 'easymotion/vim-easymotion'
+"Plugin 'haya14busa/incsearch.vim'
+"Plugin 'haya14busa/incsearch-fuzzy.vim'
 
 " vim-scripts repos
 Plugin 'AutoClose'
@@ -46,6 +52,8 @@ Plugin 'taglist.vim'
 filetype plugin indent on     " required!
 
 " NOTE: comments after Bundle command are not allowed..
+
+" ######### VIM settings ##################################
 
 set encoding=utf-8
 set gcr=a:blinkon0
@@ -82,31 +90,6 @@ set cursorline
 colo solarized
 highlight SignColumn ctermbg=lightgrey
 
-let g:ycm_collect_identifiers_from_tags_files = 0
-
-" Configure statusline plugin
-let g:airline_theme='solarized'
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#whitespace#show_message = 0
-
-" tell signify to check subrepos
-let g:signify_diffoptions = { 'hg': '-S' }
-let g:signify_vcs_list = [ 'hg' ]
-
-" only check for php errors, not style
-let g:syntastic_php_checkers=['php']
-" always add error locations to loc_list so we can jump to them
-let g:syntastic_always_populate_loc_list = 1
-
-" vimwiki
-let g:vimwiki_hl_cb_checked = 1
-nmap <leader>tt <Plug>VimwikiToggleListItem
-
 " faster buffer switching
 nnoremap <silent> <C-l> :bn<CR>
 nnoremap <silent> <C-h> :bp<CR>
@@ -121,21 +104,52 @@ noremap <C-e> 5<C-e>
 " tag jump. display list of tags if multiple found
 nnoremap <c-]> g<c-]>
 
-map <C-t> :NERDTreeToggle<CR>
-map <C-b> :CtrlPBuffer<CR>
-map <C-g> :CtrlPBufTag<CR>
-
-" Make NERDTree ignore .pyc files
-let NERDTreeIgnore = ['\.pyc$']
-
 " map <leader>/ to turn off search highlight
 nnoremap <Leader>/ :noh<CR>
+
+" ######### Various plugin settings ##################################
+
+let g:ycm_collect_identifiers_from_tags_files = 0
+
+" tell signify to check subrepos
+let g:signify_diffoptions = { 'hg': '-S' }
+let g:signify_vcs_list = [ 'hg' ]
+
+" incsearch config
+"map z/ <Plug>(incsearch-fuzzy-/)
+
+" only check for php errors, not style
+let g:syntastic_php_checkers=['php']
+" always add error locations to loc_list so we can jump to them
+let g:syntastic_always_populate_loc_list = 1
+
+" vimwiki
+let g:vimwiki_hl_cb_checked = 1
+nmap <leader>tt <Plug>VimwikiToggleListItem
+
+map <C-t> :NERDTreeToggle<CR>
+" Make NERDTree ignore .pyc files
+let NERDTreeIgnore = ['\.pyc$']
 
 " set snippet dir
 let g:snippets_dir = '~/code/dotfiles/vimsnippets/'
 
 " set ack options
 let g:ack_default_options = " -s -H --nocolor --nogroup --column --ignore-file=is:.tags"
+
+" ######### Airline ##################################
+
+" Configure statusline plugin
+let g:airline_theme='solarized'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#show_message = 0
+
+" ######### Tagbar ##################################
 
 " tagbar autofocus and autoclose
 nmap <F8> :TagbarToggle<CR>
@@ -145,6 +159,16 @@ let g:tagbar_iconchars = ['▾', '▸']
 
 " only show function names in tagbar
 let g:tagbar_type_php = { 'ctagstype' : 'php', 'kinds' : [ 'f:function' ] }
+
+" ######### Ctrl-P config ##################################
+
+map <C-b> :CtrlPBuffer<CR>
+map <C-g> :CtrlPBufTag<CR>
+
+" Add ctrlp prompt mapping for pasting previous visual selection
+let g:ctrlp_prompt_mappings = { 'PrtInsert("v")': ['<c-q>'] }
+" Add C-p shortcut for visual mode to open Ctrl-P and search for selected text
+vmap <C-p> <ESC><CR>:CtrlP<CR><c-q>
 
 let g:ctrlp_tabpage_position = 'ac'
 
@@ -156,6 +180,8 @@ let g:ctrlp_buftag_types = {
     \ 'php'     : '--PHP-kinds=+cf-v',
 \ }
 
+" ######### Easytags ##################################
+
 " let easytags look for tags file in project
 set tags=./.tags;
 let g:easytags_dynamic_files = 1
@@ -163,6 +189,8 @@ let g:easytags_dynamic_files = 1
 " (use :UpdateTags -R ./*)
 let g:easytags_auto_update = 0
 let g:easytags_auto_highlight = 0
+
+" ######### Functions ##################################
 
 " remove trailing whitespace before saving
 fun! <SID>StripTrailingWhitespaces()
@@ -211,3 +239,4 @@ function! Hgdiff()
 	wincmd w
 endfunction
 command! Hgdiff call Hgdiff()
+

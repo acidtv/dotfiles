@@ -45,11 +45,14 @@ alias svim='sudo vim'
 
 alias hgd='hg diff -p | view -'
 alias hgs='hg st -S'
-alias hgio='hg in; hg out'
+alias hgio='echo "Incoming:"; hg in; echo "Outgoing:"; hg out'
 
 # Bacward search in the shell history with <C-r>
 # bindkey ^r  history-incremental-search-backward
 setopt hist_ignore_all_dups
+
+# set timeout shorter so switching between vi modes is faster
+export KEYTIMEOUT=2
 
 # bindkey '\e[A' history-beginning-search-backward
 # bindkey '\e[B' history-beginning-search-forward
