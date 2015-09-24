@@ -80,7 +80,9 @@ export HGEDITOR="vim +Hgdiff"
 export MAGICK_HOME="$HOME/bin/imagemagick/"
 export PATH="$MAGICK_HOME/bin:$PATH:/Users/alex/pear/bin"
 export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"
-export PYTHONPATH=$PYTHONPATH:/home/alex/code/caffe/python
+#export PYTHONPATH=$PYTHONPATH:/home/alex/code/caffe/python
 
 # include fzf (https://github.com/junegunn/fzf) keyboard shortcuts
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# execute previous command and pipe through fpp
+alias pfpp='`fc -ln -1` | fpp'
