@@ -40,6 +40,7 @@ Plugin 'thinca/vim-ref'
 "Plugin 'easymotion/vim-easymotion'
 "Plugin 'haya14busa/incsearch.vim'
 "Plugin 'haya14busa/incsearch-fuzzy.vim'
+Plugin 'tpope/vim-sleuth'
 
 " vim-scripts repos
 Plugin 'AutoClose'
