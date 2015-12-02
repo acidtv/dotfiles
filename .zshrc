@@ -14,7 +14,7 @@ setopt menu_complete
 # select file in completion menu
 zstyle ':completion:*' menu select
 
-PATH=/home/alex/bin:/usr/local/mysql/bin:/usr/local/bin:/home/alex/.linuxbrew/bin:$PATH
+PATH=/home/alex/bin:/usr/local/mysql/bin:/usr/local/bin:/home/alex/.linuxbrew/bin:/home/alex/.local/bin:$PATH
 
 function hg_prompt() {
 	branch=`hg branch 2>/dev/null`
@@ -77,6 +77,7 @@ export TERM=xterm-256color
 export SVN_EDITOR=vim
 export EDITOR=vim
 export HGEDITOR="vim +Hgdiff"
+export GIT_EDITOR="nvim +Gitdiff"
 export MAGICK_HOME="$HOME/bin/imagemagick/"
 export PATH="$MAGICK_HOME/bin:$PATH:/Users/alex/pear/bin"
 export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"

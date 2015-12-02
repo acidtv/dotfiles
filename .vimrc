@@ -41,6 +41,8 @@ Plugin 'thinca/vim-ref'
 "Plugin 'haya14busa/incsearch.vim'
 "Plugin 'haya14busa/incsearch-fuzzy.vim'
 Plugin 'tpope/vim-sleuth'
+Plugin 'chrisbra/csv.vim'
+"Plugin 'nvie/vim-flake8'
 
 " vim-scripts repos
 Plugin 'AutoClose'
@@ -108,6 +110,9 @@ nnoremap <c-]> g<c-]>
 " map <leader>/ to turn off search highlight
 nnoremap <Leader>/ :noh<CR>
 
+" remap * to only highlight matches and not jump to next match
+map * :let @/ = '\<'.expand('<cword>').'\>'\|set hlsearch<C-M>
+
 " ######### Various plugin settings ##################################
 
 let g:ycm_collect_identifiers_from_tags_files = 0
@@ -123,6 +128,8 @@ let g:signify_vcs_list = [ 'hg' ]
 let g:syntastic_php_checkers=['php']
 " always add error locations to loc_list so we can jump to them
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args = "--max-line-length=160"
 
 " vimwiki
 let g:vimwiki_hl_cb_checked = 1
@@ -137,6 +144,11 @@ let g:snippets_dir = '~/code/dotfiles/vimsnippets/'
 
 " set ack options
 let g:ack_default_options = " -s -H --nocolor --nogroup --column --ignore-file=is:.tags"
+
+" set flake8 python linter options
+"let g:flake8_show_in_gutter = 1
+"let g:flake8_show_in_file = 1
+"autocmd BufWritePost *.py call Flake8()
 
 " ######### Airline ##################################
 
@@ -231,13 +243,25 @@ function! Strip(input_string)
 endfunction
 
 function! Hgdiff()
+	call Vcsdiff('hg diff -p')
+endfunction
+
+function! Gitdiff()
+	call Vcsdiff('git --no-pager diff --cached')
+endfunction
+
+function! Vcsdiff(cmd)
 	vnew 
-	silent r !hg diff -p
+	execute 'silent r !' . a:cmd
 	0
-	set filetype=diff
+	file DIFF
+	setlocal nobuflisted
+	setlocal filetype=diff
 	setlocal buftype=nofile
 	setlocal noswapfile
 	wincmd w
 endfunction
+
 command! Hgdiff call Hgdiff()
+command! Gitdiff call Gitdiff()
 
