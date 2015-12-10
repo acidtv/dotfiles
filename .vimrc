@@ -254,7 +254,7 @@ function! Vcsdiff(cmd)
 	vnew 
 	execute 'silent r !' . a:cmd
 	0
-	file DIFF
+	"file DIFF
 	setlocal nobuflisted
 	setlocal filetype=diff
 	setlocal buftype=nofile
