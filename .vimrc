@@ -40,9 +40,14 @@ Plugin 'thinca/vim-ref'
 "Plugin 'easymotion/vim-easymotion'
 "Plugin 'haya14busa/incsearch.vim'
 "Plugin 'haya14busa/incsearch-fuzzy.vim'
-Plugin 'tpope/vim-sleuth'
+"Plugin 'tpope/vim-sleuth'
 Plugin 'chrisbra/csv.vim'
 "Plugin 'nvie/vim-flake8'
+" doesn't work with nvim :(
+"Plugin 'sjl/gundo.vim'
+"Plugin 'spf13/PIV'
+Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'mbbill/undotree'
 
 " vim-scripts repos
 Plugin 'AutoClose'
@@ -80,12 +85,13 @@ set wildmode=full
 set scrolloff=4	" keep 4 lines off the edges of the screen when scrolling
 set nobackup	" no backup file clutter
 set noswapfile	" never used it
-"set nomodeline	" ignore vim modelines
-set modeline
+set nomodeline	" ignore vim modelines
+"set modeline
 set laststatus=2 " always show statusline
 "set clipboard+=unnamed " use system clipboard for yanking text
 " no delays for ESC please
 set timeoutlen=150 ttimeoutlen=0
+set nofoldenable
 
 " testing with cursorline
 set cursorline
@@ -212,7 +218,6 @@ fun! <SID>StripTrailingWhitespaces()
 	%s/\s\+$//e
 	call cursor(l, c)
 endfun
-autocmd FileType php,html,smarty,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " include local vim conf
 let s:extrarc = expand($HOME . '/.vimrc.local')
@@ -265,3 +270,6 @@ endfunction
 command! Hgdiff call Hgdiff()
 command! Gitdiff call Gitdiff()
 
+" ######### Autocmds ##################################
+
+autocmd FileType php,html,smarty,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()

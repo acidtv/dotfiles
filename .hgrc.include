@@ -14,3 +14,4 @@ shelve =
 
 [pager]
 pager = LESS='FRX' less
+

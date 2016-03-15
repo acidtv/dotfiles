@@ -15,5 +15,4 @@ neww -n code -c ~/vagrant/debian6/www
 splitw -h -p 70 -c ~/vagrant/debian6/www
 select-pane -L
 splitw -v -c ~/vagrant/debian6/www
-splitw -v  -c ~/vagrant/debian6/www "vagrant up"
 
