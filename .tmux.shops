@@ -1,7 +1,7 @@
 
 # vimwiki
 rename-window wiki
-splitw -h "vim +VimwikiIndex"
+splitw -h "nvim +VimwikiIndex"
 
 # remote window
 neww -n remote

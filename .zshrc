@@ -41,7 +41,8 @@ alias ...='cd ../..'
 alias l='ls --color=always -alh'
 alias b='cd -'
 alias pd='popd'
-alias svim='sudo vim'
+alias svim='sudo nvim'
+alias fixdbus='export $(dbus-launch)'
 
 alias hgd='hg diff -p | view -'
 alias hgs='hg st -S'
@@ -74,9 +75,9 @@ if [[ `uname` != 'Linux' ]]; then
 fi
 
 export TERM=xterm-256color
-export SVN_EDITOR=vim
-export EDITOR=vim
-export HGEDITOR="vim +Hgdiff"
+export SVN_EDITOR=nvim
+export EDITOR=nvim
+export HGEDITOR="nvim +Hgdiff"
 export GIT_EDITOR="nvim +Gitdiff"
 export MAGICK_HOME="$HOME/bin/imagemagick/"
 export PATH="$MAGICK_HOME/bin:$PATH:/Users/alex/pear/bin"
@@ -87,3 +88,4 @@ export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # execute previous command and pipe through fpp
 alias pfpp='`fc -ln -1` | fpp'
+
