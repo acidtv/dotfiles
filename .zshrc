@@ -41,10 +41,13 @@ alias ...='cd ../..'
 alias l='ls --color=always -alh'
 alias b='cd -'
 alias pd='popd'
+alias vi='nvim'
+alias vim='nvim'
+alias view='nvim -R'
 alias svim='sudo nvim'
 alias fixdbus='export $(dbus-launch)'
 
-alias hgd='hg diff -p | view -'
+alias hgd='hg diff -p | nvim -R -'
 alias hgs='hg st -S'
 alias hgio='echo "Incoming:"; hg in; echo "Outgoing:"; hg out'
 
@@ -88,4 +91,15 @@ export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # execute previous command and pipe through fpp
 alias pfpp='`fc -ln -1` | fpp'
+
+function ssh_reverse() {
+	if [ -z "$1" ]
+	then
+		echo 'Usage: ssh_reverse <host>'
+		return
+	fi
+	
+	ssh -N -R :8080:$1:80 kurkuma.qwoot.net &
+	echo 'Connected, visit: http://<site>.qwoot.net:8080'
+}
 
