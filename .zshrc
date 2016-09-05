@@ -11,15 +11,29 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # when pressing tab auto insert first match from menu
 setopt menu_complete
 
+# extended globbing, needed to find parent .hg dir
+setopt extended_glob
+
 # select file in completion menu
 zstyle ':completion:*' menu select
 
-PATH=/home/alex/bin:/usr/local/mysql/bin:/usr/local/bin:/home/alex/.linuxbrew/bin:/home/alex/.local/bin:$PATH
+PATH=/home/alex/bin:/usr/local/mysql/bin:/usr/local/bin:/home/alex/.linuxbrew/bin:/home/alex/.local/bin:/home/alex/.composer/vendor/bin:$PATH
 
 function hg_prompt() {
-	branch=`hg branch 2>/dev/null`
+	if [[ $EUID -eq 0 ]]; then
+		return
+	fi
+
+	# use globbing to find parent .hg dir
+	hg_dir=`echo (../)#.hg(N/Y1:h)`
+
+	if [ -z $hg_dir ]; then
+		return
+	fi
+
+	branch=`cat $hg_dir/.hg/branch 2> /dev/null`
+
     if [ $branch ]; then
-		bookmark=`hg book | grep "*" | cut -d " " -f 3`
 		echo "☿:%{$fg_bold[blue]%}$bookmark:$branch%{$reset_color%}"
     fi
 }
@@ -95,7 +109,7 @@ alias pfpp='`fc -ln -1` | fpp'
 function ssh_reverse() {
 	if [ -z "$1" ]
 	then
-		echo 'Usage: ssh_reverse <host>'
+		echo 'Usage: ssh_reverse <local_forward_to>'
 		return
 	fi
 	

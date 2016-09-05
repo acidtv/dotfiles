@@ -128,6 +128,9 @@ let g:ycm_collect_identifiers_from_tags_files = 0
 let g:signify_diffoptions = { 'hg': '-S' }
 let g:signify_vcs_list = [ 'hg' ]
 
+" disable signify by default. enable with :SignifyToggle
+let g:signify_disable_by_default = 1
+
 " incsearch config
 "map z/ <Plug>(incsearch-fuzzy-/)
 
@@ -199,6 +202,10 @@ let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_buftag_types = {
     \ 'php'     : '--PHP-kinds=+cf-v',
 \ }
+
+" attempt to restore old :CtrlPBuffer behavior
+let g:ctrlp_bufname_mod = ':~:.:p'
+let g:ctrlp_bufpath_mod = ''
 
 " ######### Easytags ##################################
 
