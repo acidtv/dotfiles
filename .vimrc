@@ -49,6 +49,8 @@ Plugin 'chrisbra/csv.vim'
 "Plugin 'spf13/PIV'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'mbbill/undotree'
+Plugin 'rust-lang/rust.vim'
+
 
 " vim-scripts repos
 Plugin 'AutoClose'

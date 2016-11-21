@@ -53,6 +53,7 @@ unsetopt correct_all
 
 alias ...='cd ../..'
 alias l='ls --color=always -alh'
+alias ll='ls --color=always -alh'
 alias b='cd -'
 alias pd='popd'
 alias vi='nvim'
@@ -117,3 +118,6 @@ function ssh_reverse() {
 	echo 'Connected, visit: http://<site>.qwoot.net:8080'
 }
 
+function ssh() {
+	/usr/bin/ssh -t $@ -- "tmux attach || tmux || /bin/bash"
+}
