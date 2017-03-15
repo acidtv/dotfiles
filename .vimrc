@@ -1,6 +1,9 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
+" fix weird character bug? https://github.com/neovim/neovim/issues/5990
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -11,8 +14,21 @@ Plugin 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
-Plugin 'altercation/vim-colors-solarized'
 ""Plugin 'kien/ctrlp.vim'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Shougo/neocomplete.vim'
+"Plugin 'junegunn/vim-pseudocl'
+"Plugin 'junegunn/vim-oblique'
+"Plugin 'easymotion/vim-easymotion'
+"Plugin 'haya14busa/incsearch.vim'
+"Plugin 'haya14busa/incsearch-fuzzy.vim'
+"Plugin 'tpope/vim-sleuth'
+"Plugin 'nvie/vim-flake8'
+" doesn't work with nvim :(
+"Plugin 'sjl/gundo.vim'
+"Plugin 'spf13/PIV'
+
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
@@ -20,37 +36,29 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'msanders/snipmate.vim'
 Plugin 'tpope/vim-markdown'
-Plugin 'mileszs/ack.vim'
+
 Plugin 'bling/vim-airline'
+Plugin 'mileszs/ack.vim'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mhinz/vim-signify'
-Plugin 'ludovicchabant/vim-lawrencium'
 Plugin 'vimwiki/vimwiki'
 Plugin 'spiiph/vim-space'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Shougo/vimproc.vim'
-Plugin 'tpope/vim-fugitive'
+
 Plugin 'tpope/vim-surround'
 Plugin 'kshenoy/vim-signature'
 Plugin 'vim-scripts/argtextobj.vim'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'Shougo/neocomplete.vim'
 Plugin 'thinca/vim-ref'
-"Plugin 'junegunn/vim-pseudocl'
-"Plugin 'junegunn/vim-oblique'
-"Plugin 'easymotion/vim-easymotion'
-"Plugin 'haya14busa/incsearch.vim'
-"Plugin 'haya14busa/incsearch-fuzzy.vim'
-"Plugin 'tpope/vim-sleuth'
 Plugin 'chrisbra/csv.vim'
-"Plugin 'nvie/vim-flake8'
-" doesn't work with nvim :(
-"Plugin 'sjl/gundo.vim'
-"Plugin 'spf13/PIV'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'mbbill/undotree'
 Plugin 'rust-lang/rust.vim'
+Plugin 'alvan/vim-php-manual'
 
+""slow with airline
+""Plugin 'ludovicchabant/vim-lawrencium'
+""Plugin 'tpope/vim-fugitive'
 
 " vim-scripts repos
 Plugin 'AutoClose'
@@ -162,6 +170,9 @@ let g:ack_default_options = " -s -H --nocolor --nogroup --column --ignore-file=i
 "let g:flake8_show_in_file = 1
 "autocmd BufWritePost *.py call Flake8()
 
+" php online manual shortcut
+let g:php_manual_online_search_shortcut = '<C-q>'
+
 " ######### Airline ##################################
 
 " Configure statusline plugin
@@ -208,6 +219,8 @@ let g:ctrlp_buftag_types = {
 " attempt to restore old :CtrlPBuffer behavior
 let g:ctrlp_bufname_mod = ':~:.:p'
 let g:ctrlp_bufpath_mod = ''
+
+let g:ctrlp_open_multiple_files = 'ij'
 
 " ######### Easytags ##################################
 

@@ -56,11 +56,13 @@ alias l='ls --color=always -alh'
 alias ll='ls --color=always -alh'
 alias b='cd -'
 alias pd='popd'
-alias vi='nvim'
-alias vim='nvim'
-alias view='nvim -R'
-alias svim='sudo nvim'
 alias fixdbus='export $(dbus-launch)'
+
+# nvim is being unstable...
+#alias vi='nvim'
+#alias vim='nvim'
+#alias view='nvim -R'
+#alias svim='sudo nvim'
 
 alias hgd='hg diff -p | nvim -R -'
 alias hgs='hg st -S'
