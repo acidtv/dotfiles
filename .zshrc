@@ -17,7 +17,7 @@ setopt extended_glob
 # select file in completion menu
 zstyle ':completion:*' menu select
 
-PATH=/home/alex/bin:/usr/local/mysql/bin:/usr/local/bin:/home/alex/.linuxbrew/bin:/home/alex/.local/bin:/home/alex/.composer/vendor/bin:$PATH
+PATH=/home/alex/bin:/usr/local/mysql/bin:/usr/local/bin:/home/alex/.linuxbrew/bin:/home/alex/.local/bin:/home/alex/.composer/vendor/bin:/home/alex/code/hgtools:$PATH
 
 function hg_prompt() {
 	if [[ $EUID -eq 0 ]]; then
