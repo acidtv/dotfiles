@@ -290,9 +290,36 @@ function! Vcsdiff(cmd)
 	wincmd w
 endfunction
 
+function! ProjectInit()
+	let projectfolder = expand($HOME . '/code/dotfiles/vimprojects/')
+	let dotproject = '.vimproject'
+
+	if filereadable(dotproject)
+		let project = readfile(dotproject) 
+		let valid = matchstr(project[0], '^[a-z]\+$')
+
+		if empty(valid) 
+			throw "Project name can only contain lower case letters."
+		endif
+
+		let projectfile = projectfolder . project[0] . '.vim'
+
+		if filereadable(projectfile)
+			execute 'source ' . projectfile
+			"echo 'Read ' . project[0] . ' projectfile.'
+		endif
+	endif
+endfunction
+
 command! Hgdiff call Hgdiff()
 command! Gitdiff call Gitdiff()
+command! ProjectInit call ProjectInit()
 
 " ######### Autocmds ##################################
 
 autocmd FileType php,html,smarty,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
+" ######### INIT ##################################
+
+call ProjectInit()
+
