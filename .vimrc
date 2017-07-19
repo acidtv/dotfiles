@@ -2,7 +2,7 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 
 " fix weird character bug? https://github.com/neovim/neovim/issues/5990
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
+"let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -28,8 +28,11 @@ Plugin 'gmarik/vundle'
 "Plugin 'sjl/gundo.vim'
 "Plugin 'spf13/PIV'
 
+"Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/syntastic'
@@ -103,6 +106,11 @@ set laststatus=2 " always show statusline
 " no delays for ESC please
 set timeoutlen=150 ttimeoutlen=0
 set nofoldenable
+
+" hopefully gets rid of '2 q' garbage chars in tmux
+" UPDATE: doesnt seem to work, but leaving it here anyway
+set guicursor=
+let $VTE_VERSION = "100"
 
 " testing with cursorline
 set cursorline
@@ -196,6 +204,7 @@ let g:tagbar_iconchars = ['▾', '▸']
 " only show function names in tagbar
 let g:tagbar_type_php = { 'ctagstype' : 'php', 'kinds' : [ 'f:function' ] }
 
+
 " ######### Ctrl-P config ##################################
 
 map <C-b> :CtrlPBuffer<CR>
@@ -221,6 +230,14 @@ let g:ctrlp_bufname_mod = ':~:.:p'
 let g:ctrlp_bufpath_mod = ''
 
 let g:ctrlp_open_multiple_files = 'ij'
+
+" ######### FZF config ##################################
+
+map <C-p> :Files<CR>
+map <C-b> :Buffers<CR>
+map <C-g> :BTags<CR>
+
+let $FZF_DEFAULT_COMMAND='ag -g ""'
 
 " ######### Easytags ##################################
 
