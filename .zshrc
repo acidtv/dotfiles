@@ -32,6 +32,7 @@ function hg_prompt() {
 	fi
 
 	branch=`cat $hg_dir/.hg/branch 2> /dev/null`
+	bookmark=`cat $hg_dir/.hg/bookmarks.current 2> /dev/null`
 
     if [ $branch ]; then
 		echo "☿:%{$fg_bold[blue]%}$bookmark:$branch%{$reset_color%}"
