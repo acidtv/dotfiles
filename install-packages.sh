@@ -14,10 +14,6 @@ if [ ! -d ~/.config/nvim/bundle/Vundle.vim ]; then
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
 fi
 
-if [ ! ~/.vimrc ]; then
-	ln -s $SCRIPT_DIR/.vimrc ~/
-fi
-
 # neovim
 if [ ! -f /usr/bin/nvim ]; then
 	sudo add-apt-repository ppa:neovim-ppa/stable
@@ -31,6 +27,27 @@ if [ ! -d ~/.config/nvim ]; then
 fi
 
 cp -u $SCRIPT_DIR/.config/nvim/init.vim ~/.config/nvim/
+
+# symlinks
+
+SYMLINKS=".vimrc
+.gitconfig
+.zshrc
+.tmux.conf
+"
+for link in $SYMLINKS; do
+	if [ ! "~/$link" ]; then
+		echo "Linking $link ..."
+		ln -s $SCRIPT_DIR/$link ~/
+	fi
+done
+
+# mercurial config
+
+if [ ! "~/.hgrc" ]; then
+	echo "Copying .hgrc ..."
+	cp $SCRIPT_DIR/.hgrc.skel ~/.hgrc
+fi
 
 # docker
 
