@@ -85,3 +85,7 @@ apt install -y keepassxc network-manager-openvpn network-manager-openvpn-gnome c
 # Xubuntu packages
 
 apt install -y xubuntu-restricted-extras redshift redshift-gtk
+
+# Switch caps with escape
+
+sed -i "s/XKBOPTIONS=\"\"/XKBOPTIONS=\"caps:swapescape\"/" /etc/default/keyboard
