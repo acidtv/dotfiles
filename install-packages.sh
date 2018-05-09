@@ -2,7 +2,13 @@
 
 set -e
 
-SCRIPT_DIR=`dirname "$0"`
+if [ -z "$SUDO_USER" ]; then
+	echo "Please run this script with sudo" >&2
+	exit 1
+fi
+
+SCRIPT_DIR=$(cd `dirname "$0"`; pwd)
+echo "Linking configs to $SCRIPT_DIR"
 
 # apt update
 
@@ -36,30 +42,34 @@ SYMLINKS=".vimrc
 .tmux.conf
 "
 for link in $SYMLINKS; do
-	if [ ! "~/$link" ]; then
+	if [ ! -e "$HOME/$link" ]; then
 		echo "Linking $link ..."
-		ln -s $SCRIPT_DIR/$link ~/
+		ln -s $SCRIPT_DIR/$link $HOME/
 	fi
 done
 
 # mercurial config
 
-if [ ! "~/.hgrc" ]; then
+if [ ! -e "$HOME/.hgrc" ]; then
 	echo "Copying .hgrc ..."
 	cp $SCRIPT_DIR/.hgrc.skel ~/.hgrc
 fi
 
+# set default shell
+
+chsh -s /usr/bin/zsh $SUDO_USER
+
 # docker
 
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-
-add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-
-apt update
-apt install -y docker-ce
+# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+# 
+# add-apt-repository \
+#    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+#    $(lsb_release -cs) \
+#    stable"
+# 
+# apt update
+# apt install -y docker-ce
 
 # lxc
 
