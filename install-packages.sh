@@ -13,7 +13,10 @@ echo "Linking configs to $SCRIPT_DIR"
 # apt update
 
 # base packages
-apt install -y vim tmux zsh git mercurial mercurial-keyring exuberant-ctags ack-grep curl phing composer php-mbstring python-pip
+apt install -y vim tmux zsh git mercurial curl
+
+# dev packages
+apt install -y mercurial-keyring exuberant-ctags ack-grep phing composer php-mbstring python-pip ruby-dev ruby-bundler
 
 # vim config
 if [ ! -d ~/.config/nvim/bundle/Vundle.vim ]; then
@@ -84,7 +87,7 @@ apt install -y keepassxc network-manager-openvpn network-manager-openvpn-gnome c
 
 # Xubuntu packages
 
-apt install -y xubuntu-restricted-extras redshift redshift-gtk
+apt install -y xubuntu-restricted-extras redshift redshift-gtk duplicity deja-dup
 
 # Switch caps with escape
 
