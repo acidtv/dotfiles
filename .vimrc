@@ -288,7 +288,7 @@ function! Strip(input_string)
 endfunction
 
 function! Hgdiff()
-	call Vcsdiff('hg diff -p')
+	call Vcsdiff('hg diff -Sp')
 endfunction
 
 function! Gitdiff()
