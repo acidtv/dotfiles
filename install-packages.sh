@@ -83,7 +83,7 @@ fi
 
 # GUI packages
 
-apt install -y keepassxc network-manager-openvpn network-manager-openvpn-gnome chromium-browser
+apt install -y keepassxc network-manager-openvpn network-manager-openvpn-gnome chromium-browser vlc
 
 # Xubuntu packages
 
