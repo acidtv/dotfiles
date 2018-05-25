@@ -58,6 +58,9 @@ alias ll='ls --color=always -alh'
 alias b='cd -'
 alias pd='popd'
 alias fixdbus='export $(dbus-launch)'
+alias ip='ip -c'
+alias ipa='ip -br -c a'
+alias prettyjson='python -m json.tool'
 
 # nvim is being unstable...
 #alias vi='nvim'
