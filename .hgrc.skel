@@ -1,0 +1,7 @@
+[ui]
+username = Alex <alex@qwoot.net>
+
+#[extensions]
+#mercurial_keyring =
+
+%include ~/code/dotfiles/.hgrc.include

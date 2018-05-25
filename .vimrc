@@ -4,7 +4,7 @@ filetype off                   " required!
 " fix weird character bug? https://github.com/neovim/neovim/issues/5990
 "let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.config/nvim/bundle/Vundle.vim/
 call vundle#rc()
 
 " let Vundle manage Vundle
