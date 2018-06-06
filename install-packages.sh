@@ -13,7 +13,7 @@ echo "Linking configs to $SCRIPT_DIR"
 # apt update
 
 # base packages
-apt install -y vim tmux zsh git mercurial curl
+apt install -y vim tmux zsh git mercurial curl whois
 
 # dev packages
 apt install -y mercurial-keyring exuberant-ctags ack-grep phing composer php-mbstring python-pip ruby-dev ruby-bundler
@@ -83,7 +83,7 @@ fi
 
 # GUI packages
 
-apt install -y keepassxc network-manager-openvpn network-manager-openvpn-gnome chromium-browser vlc
+apt install -y keepassxc network-manager-openvpn network-manager-openvpn-gnome chromium-browser vlc mysql-workbench
 
 # Xubuntu packages
 
