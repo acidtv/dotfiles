@@ -58,6 +58,7 @@ Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'mbbill/undotree'
 Plugin 'rust-lang/rust.vim'
 Plugin 'alvan/vim-php-manual'
+""Plugin 'captbaritone/better-indent-support-for-php-with-html'
 
 ""slow with airline
 ""Plugin 'ludovicchabant/vim-lawrencium'
@@ -116,6 +117,7 @@ let $VTE_VERSION = "100"
 set cursorline
 
 colo solarized
+set background=light
 highlight SignColumn ctermbg=lightgrey
 
 " faster buffer switching
@@ -237,7 +239,7 @@ map <C-p> :Files<CR>
 map <C-b> :Buffers<CR>
 map <C-g> :BTags<CR>
 
-let $FZF_DEFAULT_COMMAND='ag -g ""'
+let $FZF_DEFAULT_COMMAND='ag -f -g ""'
 
 " ######### Easytags ##################################
 
