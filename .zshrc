@@ -108,6 +108,13 @@ export PATH="$MAGICK_HOME/bin:$PATH:/Users/alex/pear/bin"
 export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"
 #export PYTHONPATH=$PYTHONPATH:/home/alex/code/caffe/python
 
+# Android SDK envs for react-native
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 # include fzf (https://github.com/junegunn/fzf) keyboard shortcuts
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # execute previous command and pipe through fpp
