@@ -61,6 +61,7 @@ alias fixdbus='export $(dbus-launch)'
 alias ip='ip -c'
 alias ipa='ip -br -c a'
 alias prettyjson='python -m json.tool'
+alias de='docker-compose exec'
 
 # nvim is being unstable...
 #alias vi='nvim'
