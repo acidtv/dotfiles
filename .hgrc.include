@@ -15,3 +15,5 @@ shelve =
 [pager]
 pager = LESS='FRX' less
 
+[revsetalias]
+bookmarkwork(bm) = ancestor(bm:@)::bm and not ancestor(bm:@)
