@@ -16,4 +16,8 @@ shelve =
 pager = LESS='FRX' less
 
 [revsetalias]
-bookmarkwork(bm) = ancestor(bm:@)::bm and not ancestor(bm:@)
+# all commits in bookmark, useful for `hg log`
+bmcommits(bm) = ancestor(bm:@)::bm and not ancestor(bm:@)
+
+# parent of bookmark, useful for `hg diff`
+bmparent(bm) = ancestor(bm:@)
