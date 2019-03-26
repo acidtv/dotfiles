@@ -244,6 +244,7 @@ let $FZF_DEFAULT_COMMAND='ag -f -g ""'
 " ######### Easytags ##################################
 
 " let easytags look for tags file in project
+" search for tagsfile current file dir, after that in current dir (pwd)
 set tags=./.tags,.tags
 let g:easytags_dynamic_files = 1
 " disable auto update because it seems to make vim lag
