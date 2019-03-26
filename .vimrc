@@ -61,7 +61,7 @@ Plugin 'alvan/vim-php-manual'
 ""Plugin 'captbaritone/better-indent-support-for-php-with-html'
 
 ""slow with airline
-""Plugin 'ludovicchabant/vim-lawrencium'
+Plugin 'ludovicchabant/vim-lawrencium'
 ""Plugin 'tpope/vim-fugitive'
 
 " vim-scripts repos
@@ -173,7 +173,7 @@ let NERDTreeIgnore = ['\.pyc$']
 let g:snippets_dir = '~/code/dotfiles/vimsnippets/'
 
 " set ack options
-let g:ack_default_options = " -s -H --nocolor --nogroup --column --ignore-file=is:.tags"
+let g:ack_default_options = " -s -H --nocolor --nogroup --column --ignore-file=is:.tags --follow"
 
 " set flake8 python linter options
 "let g:flake8_show_in_gutter = 1
@@ -244,7 +244,7 @@ let $FZF_DEFAULT_COMMAND='ag -f -g ""'
 " ######### Easytags ##################################
 
 " let easytags look for tags file in project
-set tags=./.tags;
+set tags=./.tags,.tags
 let g:easytags_dynamic_files = 1
 " disable auto update because it seems to make vim lag
 " (use :UpdateTags -R ./*)
