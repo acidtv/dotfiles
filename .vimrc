@@ -59,6 +59,7 @@ Plugin 'mbbill/undotree'
 Plugin 'rust-lang/rust.vim'
 Plugin 'alvan/vim-php-manual'
 ""Plugin 'captbaritone/better-indent-support-for-php-with-html'
+Plugin 'phpactor/phpactor'
 
 ""slow with airline
 Plugin 'ludovicchabant/vim-lawrencium'
@@ -270,7 +271,9 @@ endif
 
 " Update tags file for php
 function! UpdateTags()
-	call system("ctags -R -f .tags --exclude=.hg --exclude='bower_components' --exclude='node_modules' --exclude='*min.js' --tag-relative=yes --PHP-kinds=+cf-v --regex-PHP='/abstract\s+class\s+([^ ]+)/\1/c/' --regex-PHP='/interface\s+([^ ]+)/\1/c/' --regex-PHP='/(public\s+|static\s+|abstract\s+|protected\s+|private\s+)function\s+\&?\s*([^ ()]+)/\2/f/' ./*")
+	call system("ctags -R -f .tags --exclude=.hg --exclude='bower_components' --exclude='node_modules' --exclude='*min.js' --tag-relative=yes 
+				\ --PHP-kinds=+citf-v 
+				\ ./*")
 	echo 'Tagsfile updated'
 endfunction
 command! UpdateTags call UpdateTags()
