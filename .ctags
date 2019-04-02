@@ -1,2 +1,1 @@
 --regex-PHP=/trait\s+([^ ]+)/\1/t,traits/
---regex-PHP=/(public\s+|static\s+|abstract\s+|protected\s+|private\s+)function\s+\&?\s*([^ ()]+)/\2/f,functions/

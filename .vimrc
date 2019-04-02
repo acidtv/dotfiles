@@ -58,8 +58,8 @@ Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'mbbill/undotree'
 Plugin 'rust-lang/rust.vim'
 Plugin 'alvan/vim-php-manual'
-""Plugin 'captbaritone/better-indent-support-for-php-with-html'
-Plugin 'phpactor/phpactor'
+"phpactor cannot handle the orbit sourcecode
+"Plugin 'phpactor/phpactor'
 
 ""slow with airline
 Plugin 'ludovicchabant/vim-lawrencium'
@@ -238,7 +238,10 @@ let g:ctrlp_open_multiple_files = 'ij'
 
 map <C-p> :Files<CR>
 map <C-b> :Buffers<CR>
-map <C-g> :BTags<CR>
+"map <C-g> :BTags<CR>
+" Same as :BTags but shows only functions
+map <C-g> :call fzf#vim#buffer_tags('', { 'options': ['--nth', '..-2,-1', '--query', '^f$ '] })<CR>
+
 
 let $FZF_DEFAULT_COMMAND='ag -f -g ""'
 
@@ -246,7 +249,8 @@ let $FZF_DEFAULT_COMMAND='ag -f -g ""'
 
 " let easytags look for tags file in project
 " search for tagsfile current file dir, after that in current dir (pwd)
-set tags=./.tags,.tags
+"set tags=./.tags,.tags
+set tags=.tags
 let g:easytags_dynamic_files = 1
 " disable auto update because it seems to make vim lag
 " (use :UpdateTags -R ./*)
