@@ -3,6 +3,7 @@
 SET __fish_classic_git_prompt_initialized:\x1d
 SET __fish_init_1_22_0:\x1d
 SET __fish_init_1_50_0:\x1d
+SET __fish_init_2_3_0:\x1d
 SET __prompt_initialized_2:\x1d
 SET __tmux_session_name:local
 SET fish_color_autosuggestion:555
@@ -32,3 +33,4 @@ SET fish_pager_color_description:555\x1eyellow
 SET fish_pager_color_prefix:cyan
 SET fish_pager_color_progress:cyan
 SET fish_user_abbreviations:hgs\x20hg\x20status\x20\x2dS\x1ehgd\x20hg\x20diff\x1el\x20ls
+SET fish_user_paths:/home/alex/\x2evim/bundle/fzf/bin
