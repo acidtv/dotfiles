@@ -258,6 +258,16 @@ let g:easytags_dynamic_files = 1
 let g:easytags_auto_update = 0
 let g:easytags_auto_highlight = 0
 
+" ######### vim-tmux-navigator #########################
+
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <m-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <m-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <m-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <m-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <m-\> :TmuxNavigatePrevious<cr>
+
 " ######### Functions ##################################
 
 " remove trailing whitespace before saving
