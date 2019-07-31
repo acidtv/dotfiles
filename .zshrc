@@ -71,7 +71,7 @@ alias de='docker-compose exec'
 
 alias hgd='hg diff -p | nvim -R -'
 alias hgs='hg st -S'
-alias hgio='echo "Incoming:"; hg in; echo "Outgoing:"; hg out'
+alias hgio='echo "Incoming:"; hg in --quiet -T "{author}@{branch}: {desc}\n"; echo "\nOutgoing:"; hg out --quiet'
 
 # Bacward search in the shell history with <C-r>
 # bindkey ^r  history-incremental-search-backward
