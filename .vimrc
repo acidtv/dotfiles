@@ -303,12 +303,26 @@ function! MercurialBranch()
 
 	return output
 endfunction
+"
+" Mercurial bookmark
+function! MercurialBookmark()
+	let output = Strip(system('hg id -B'))
+	return output
+endfunction
 
 function! Strip(input_string)
 	return substitute(a:input_string, '^\s*\(.\{-}\)\s*\n$', '\1', '')
 endfunction
 
 function! Hgdiff()
+	let book = toupper(MercurialBookmark())
+
+	" Check if bookmark name matches issue numer format,
+	" and if it does add it to the commit message
+	if book =~ 'DEV-\d\+'
+		call append(0, '#' . book. ': ')
+	endif
+
 	call Vcsdiff('hg diff -Sp')
 endfunction
 
