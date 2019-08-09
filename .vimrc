@@ -321,6 +321,7 @@ function! Hgdiff()
 	" and if it does add it to the commit message
 	if book =~ 'DEV-\d\+'
 		call append(0, '#' . book. ': ')
+		call cursor(1, 0)
 	endif
 
 	call Vcsdiff('hg diff -Sp')
