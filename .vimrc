@@ -306,7 +306,7 @@ endfunction
 "
 " Mercurial bookmark
 function! MercurialBookmark()
-	let output = Strip(system('hg id -B'))
+	let output = Strip(system('hg id -B \| cut -f1 -d" "'))
 	return output
 endfunction
 
