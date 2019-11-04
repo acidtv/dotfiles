@@ -16,7 +16,7 @@ echo "Linking configs to $SCRIPT_DIR"
 apt install -y vim tmux zsh git mercurial curl whois
 
 # dev packages
-apt install -y mercurial-keyring exuberant-ctags ack-grep phing composer php-mbstring python-pip ruby-dev ruby-bundler
+apt install -y mercurial-keyring exuberant-ctags ack-grep phing composer php-mbstring python-pip ruby-dev ruby-bundler silversearcher-ag
 
 # vim config
 if [ ! -d ~/.config/nvim/bundle/Vundle.vim ]; then
@@ -76,10 +76,10 @@ chsh -s /usr/bin/zsh $SUDO_USER
 
 # lxc
 
-if [ ! -f /usr/bin/lxd ]; then
-	apt install -y lxc1 lxd
-	lxd init
-fi
+#if [ ! -f /usr/bin/lxd ]; then
+#	apt install -y lxc1 lxd
+#	lxd init
+#fi
 
 # GUI packages
 
@@ -87,8 +87,8 @@ apt install -y keepassxc network-manager-openvpn network-manager-openvpn-gnome c
 
 # Xubuntu packages
 
-apt install -y xubuntu-restricted-extras redshift redshift-gtk duplicity deja-dup
+# apt install -y xubuntu-restricted-extras redshift redshift-gtk duplicity deja-dup
 
 # Switch caps with escape
 
-sed -i "s/XKBOPTIONS=\"\"/XKBOPTIONS=\"caps:swapescape\"/" /etc/default/keyboard
+# sed -i "s/XKBOPTIONS=\"\"/XKBOPTIONS=\"caps:swapescape\"/" /etc/default/keyboard
