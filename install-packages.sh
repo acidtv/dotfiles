@@ -83,7 +83,12 @@ chsh -s /usr/bin/zsh $SUDO_USER
 
 # GUI packages
 
-apt install -y keepassxc network-manager-openvpn network-manager-openvpn-gnome chromium-browser vlc mysql-workbench
+apt install -y keepassxc network-manager-openvpn network-manager-openvpn-gnome chromium-browser vlc mysql-workbench syncthing
+
+# Enable syncthing user service
+systemctl --user enable syncthing.service
+systemctl --user start syncthing.service
+echo "Don't forget to share the syncthing folder with this device. Use 'syncthing -browser-only' to open the syncthing interface."
 
 # Xubuntu packages
 
