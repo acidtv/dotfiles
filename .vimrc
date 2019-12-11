@@ -210,30 +210,30 @@ let g:tagbar_type_php = { 'ctagstype' : 'php', 'kinds' : [ 'f:function' ] }
 
 
 " ######### Ctrl-P config ##################################
-
-map <C-b> :CtrlPBuffer<CR>
-map <C-g> :CtrlPBufTag<CR>
-
-" Add ctrlp prompt mapping for pasting previous visual selection
-let g:ctrlp_prompt_mappings = { 'PrtInsert("v")': ['<c-q>'] }
-" Add C-p shortcut for visual mode to open Ctrl-P and search for selected text
-vmap <C-p> <ESC><CR>:CtrlP<CR><c-q>
-
-let g:ctrlp_tabpage_position = 'ac'
-
-" dont look at .hg dirs to decide where current working dir is, messes up with
-" subrepos
-let g:ctrlp_working_path_mode = '0'
-
-let g:ctrlp_buftag_types = {
-    \ 'php'     : '--PHP-kinds=+cf-v',
-\ }
-
-" attempt to restore old :CtrlPBuffer behavior
-let g:ctrlp_bufname_mod = ':~:.:p'
-let g:ctrlp_bufpath_mod = ''
-
-let g:ctrlp_open_multiple_files = 'ij'
+"
+"map <C-b> :CtrlPBuffer<CR>
+"map <C-g> :CtrlPBufTag<CR>
+"
+"" Add ctrlp prompt mapping for pasting previous visual selection
+"let g:ctrlp_prompt_mappings = { 'PrtInsert("v")': ['<c-q>'] }
+"" Add C-p shortcut for visual mode to open Ctrl-P and search for selected text
+"vmap <C-p> <ESC><CR>:CtrlP<CR><c-q>
+"
+"let g:ctrlp_tabpage_position = 'ac'
+"
+"" dont look at .hg dirs to decide where current working dir is, messes up with
+"" subrepos
+"let g:ctrlp_working_path_mode = '0'
+"
+"let g:ctrlp_buftag_types = {
+"    \ 'php'     : '--PHP-kinds=+cf-v',
+"\ }
+"
+"" attempt to restore old :CtrlPBuffer behavior
+"let g:ctrlp_bufname_mod = ':~:.:p'
+"let g:ctrlp_bufpath_mod = ''
+"
+"let g:ctrlp_open_multiple_files = 'ij'
 
 " ######### FZF config ##################################
 
