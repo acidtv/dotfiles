@@ -185,6 +185,7 @@ let g:ack_default_options = " -s -H --nocolor --nogroup --column --ignore-file=i
 " php online manual shortcut
 let g:php_manual_online_search_shortcut = '<C-q>'
 
+let g:PHP_noArrowMatching = 1
 " ######### Airline ##################################
 
 " Configure statusline plugin
