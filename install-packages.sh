@@ -2,10 +2,10 @@
 
 set -e
 
-if [ -z "$SUDO_USER" ]; then
-	echo "Please run this script with sudo" >&2
-	exit 1
-fi
+#if [ -z "$SUDO_USER" ]; then
+	#echo "Please run this script with sudo" >&2
+	#exit 1
+#fi
 
 SCRIPT_DIR=$(cd `dirname "$0"`; pwd)
 echo "Linking configs to $SCRIPT_DIR"
@@ -13,10 +13,10 @@ echo "Linking configs to $SCRIPT_DIR"
 # apt update
 
 # base packages
-apt install -y vim tmux zsh git mercurial curl whois traceroute
+sudo apt install -y vim tmux zsh git mercurial curl whois traceroute
 
 # dev packages
-apt install -y mercurial-keyring exuberant-ctags ack-grep phing composer php-mbstring python-pip ruby-dev ruby-bundler silversearcher-ag
+sudo apt install -y mercurial-keyring exuberant-ctags ack-grep phing composer php-mbstring python-pip ruby-dev ruby-bundler silversearcher-ag
 
 # vim config
 if [ ! -d ~/.config/nvim/bundle/Vundle.vim ]; then
@@ -26,8 +26,8 @@ fi
 # neovim
 if [ ! -f /usr/bin/nvim ]; then
 	sudo add-apt-repository ppa:neovim-ppa/stable
-	apt update
-	apt install -y neovim
+	sudo apt update
+	sudo apt install -y neovim
 fi
 
 # neovim config
@@ -60,7 +60,7 @@ fi
 
 # set default shell
 
-chsh -s /usr/bin/zsh $SUDO_USER
+chsh -s /usr/bin/zsh $USER
 
 # docker
 
@@ -83,7 +83,7 @@ chsh -s /usr/bin/zsh $SUDO_USER
 
 # GUI packages
 
-apt install -y keepassxc network-manager-openvpn network-manager-openvpn-gnome chromium-browser vlc mysql-workbench syncthing
+sudo apt install -y keepassxc network-manager-openvpn network-manager-openvpn-gnome chromium-browser vlc mysql-workbench syncthing
 
 # Enable syncthing user service
 systemctl --user enable syncthing.service
