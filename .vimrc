@@ -53,7 +53,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'kshenoy/vim-signature'
 Plugin 'vim-scripts/argtextobj.vim'
 Plugin 'thinca/vim-ref'
-Plugin 'chrisbra/csv.vim'
+""Plugin 'chrisbra/csv.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'mbbill/undotree'
 Plugin 'rust-lang/rust.vim'
@@ -307,7 +307,7 @@ endfunction
 "
 " Mercurial bookmark
 function! MercurialBookmark()
-	let output = Strip(system('hg id -B \| cut -f1 -d" "'))
+	let output = Strip(system('hg id -B | cut -f1 -d" "'))
 	return output
 endfunction
 
