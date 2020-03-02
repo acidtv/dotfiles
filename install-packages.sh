@@ -13,7 +13,7 @@ echo "Linking configs to $SCRIPT_DIR"
 # apt update
 
 # base packages
-sudo apt install -y vim tmux zsh git mercurial curl whois traceroute
+sudo apt install -y vim tmux zsh git mercurial curl whois traceroute net-tools
 
 # dev packages
 sudo apt install -y mercurial-keyring exuberant-ctags ack-grep phing composer php-mbstring python-pip ruby-dev ruby-bundler silversearcher-ag
