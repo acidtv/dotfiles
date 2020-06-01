@@ -11,34 +11,17 @@ call vundle#rc()
 " required! 
 Plugin 'gmarik/vundle'
 
-" My Bundles here:
-"
-" original repos on github
-""Plugin 'kien/ctrlp.vim'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'Shougo/neocomplete.vim'
-"Plugin 'junegunn/vim-pseudocl'
-"Plugin 'junegunn/vim-oblique'
-"Plugin 'easymotion/vim-easymotion'
-"Plugin 'haya14busa/incsearch.vim'
-"Plugin 'haya14busa/incsearch-fuzzy.vim'
-"Plugin 'tpope/vim-sleuth'
-"Plugin 'nvie/vim-flake8'
-" doesn't work with nvim :(
-"Plugin 'sjl/gundo.vim'
-"Plugin 'spf13/PIV'
-
-"Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'msanders/snipmate.vim'
 Plugin 'tpope/vim-markdown'
+Plugin 'lumiliet/vim-twig'
 
 Plugin 'bling/vim-airline'
 Plugin 'mileszs/ack.vim'
@@ -53,26 +36,30 @@ Plugin 'tpope/vim-surround'
 Plugin 'kshenoy/vim-signature'
 Plugin 'vim-scripts/argtextobj.vim'
 Plugin 'thinca/vim-ref'
-""Plugin 'chrisbra/csv.vim'
-Plugin 'shawncplus/phpcomplete.vim'
+"Plugin 'chrisbra/csv.vim'
+"Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'mbbill/undotree'
-Plugin 'rust-lang/rust.vim'
 Plugin 'alvan/vim-php-manual'
-"phpactor cannot handle the orbit sourcecode
-"Plugin 'phpactor/phpactor'
+" phpactor cannot handle the orbit sourcecode
+Plugin 'phpactor/phpactor'
 Plugin 'christoomey/vim-tmux-navigator'
 
-""slow with airline
+" Make sure nodejs is installed!
+" After :PluginInstall go to ~/.vim/bundle/coc.nvim/ and execute `yarn install -frozen-lockfile`
+" Then:
+" :CocInstall coc-css
+" :CocInstall coc-html
+" :CocInstall coc-phpls
+" :CocInstall coc-tsserver
+Plugin 'neoclide/coc.nvim'
+
+"slow with airline
 Plugin 'ludovicchabant/vim-lawrencium'
-""Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 
 " vim-scripts repos
 Plugin 'AutoClose'
-Plugin 'taglist.vim'
-
-" non github repos
-" Plugin 'git://git.wincent.com/command-t.git'
-" ...
+"Plugin 'taglist.vim'
 
 filetype plugin indent on     " required!
 
@@ -107,13 +94,13 @@ set nomodeline	" ignore vim modelines
 set laststatus=2 " always show statusline
 "set clipboard+=unnamed " use system clipboard for yanking text
 " no delays for ESC please
-set timeoutlen=150 ttimeoutlen=0
+""set timeoutlen=150 ttimeoutlen=0
 set nofoldenable
 
 " hopefully gets rid of '2 q' garbage chars in tmux
 " UPDATE: doesnt seem to work, but leaving it here anyway
-set guicursor=
-let $VTE_VERSION = "100"
+"set guicursor=
+"let $VTE_VERSION = "100"
 
 " testing with cursorline
 set cursorline
@@ -186,6 +173,17 @@ let g:ack_default_options = " -s -H --nocolor --nogroup --column --ignore-file=i
 let g:php_manual_online_search_shortcut = '<C-q>'
 
 let g:PHP_noArrowMatching = 1
+
+" ######### COC ######################################
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
 " ######### Airline ##################################
 
 " Configure statusline plugin
@@ -268,6 +266,39 @@ nnoremap <silent> <m-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <m-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <m-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <m-\> :TmuxNavigatePrevious<cr>
+
+" ######### phpactor #########################
+
+augroup PhpactorMappings
+	au!
+	au FileType php nmap <buffer> <Leader>u :PhpactorImportClass<CR>
+	"au FileType php nmap <buffer> <Leader>e :PhpactorClassExpand<CR>
+	au FileType php nmap <buffer> <Leader>ua :PhpactorImportMissingClasses<CR>
+	au FileType php nmap <buffer> <Leader>mm :PhpactorContextMenu<CR>
+	au FileType php nmap <buffer> <Leader>nn :PhpactorNavigate<CR>
+    au FileType php nmap <buffer> <Leader>t :PhpactorGotoType<CR>
+	au FileType php,cucumber nmap <buffer> <Leader>o
+				\ :PhpactorGotoDefinition<CR>
+	"au FileType php,cucumber nmap <buffer> <Leader>Oh
+				"\ :PhpactorGotoDefinitionHsplit<CR>
+	"au FileType php,cucumber nmap <buffer> <Leader>Ov
+				"\ :PhpactorGotoDefinitionVsplit<CR>
+	"au FileType php,cucumber nmap <buffer> <Leader>Ot
+				"\ :PhpactorGotoDefinitionTab<CR>
+	au FileType php nmap <buffer> <Leader>K :PhpactorHover<CR>
+	au FileType php nmap <buffer> <Leader>tt :PhpactorTransform<CR>
+	au FileType php nmap <buffer> <Leader>cc :PhpactorClassNew<CR>
+	"au FileType php nmap <buffer> <Leader>ci :PhpactorClassInflect<CR>
+	au FileType php nmap <buffer> <Leader>fr :PhpactorFindReferences<CR>
+	"au FileType php nmap <buffer> <Leader>mf :PhpactorMoveFile<CR>
+	"au FileType php nmap <buffer> <Leader>cf :PhpactorCopyFile<CR>
+	au FileType php nmap <buffer> <silent> <Leader>ee
+				\ :PhpactorExtractExpression<CR>
+	au FileType php vmap <buffer> <silent> <Leader>ee
+				\ :<C-u>PhpactorExtractExpression<CR>
+	au FileType php vmap <buffer> <silent> <Leader>em
+				\ :<C-u>PhpactorExtractMethod<CR>
+augroup END
 
 " ######### Functions ##################################
 

@@ -11,3 +11,11 @@
 
 [push]
 	default = current
+[git-bug "auth.af02cb3b158e8705de5fe502a0f20d7cf426e353e238d645aad8e7c5413a3c3d"]
+	kind = token
+	target = github
+	createtime = 1589385313
+	salt = vSRQ0B0FKgO5XLXTTVWNXg==
+	value = 6e0a96fd1178f6be1ef5d42d71def36ac608fe28
+[git-bug "auth.af02cb3b158e8705de5fe502a0f20d7cf426e353e238d645aad8e7c5413a3c3d.meta"]
+	login = acidtv
