@@ -13,21 +13,14 @@ echo "Linking configs to $SCRIPT_DIR"
 # apt update
 
 # base packages
-sudo apt install -y vim tmux zsh git mercurial curl whois traceroute net-tools
+sudo apt install -y neovim vim tmux zsh git mercurial curl whois traceroute net-tools
 
 # dev packages
-sudo apt install -y mercurial-keyring exuberant-ctags ack-grep phing composer php-mbstring python-pip ruby-dev ruby-bundler silversearcher-ag
+sudo apt install -y mercurial-keyring exuberant-ctags ack-grep phing composer php-mbstring python3-pip ruby-dev ruby-bundler silversearcher-ag
 
 # vim config
 if [ ! -d ~/.config/nvim/bundle/Vundle.vim ]; then
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
-fi
-
-# neovim
-if [ ! -f /usr/bin/nvim ]; then
-	sudo add-apt-repository ppa:neovim-ppa/stable
-	sudo apt update
-	sudo apt install -y neovim
 fi
 
 # neovim config
@@ -83,7 +76,7 @@ chsh -s /usr/bin/zsh $USER
 
 # GUI packages
 
-sudo apt install -y keepassxc network-manager-openvpn network-manager-openvpn-gnome chromium-browser vlc mysql-workbench syncthing
+sudo apt install -y keepassxc network-manager-openvpn network-manager-openvpn-gnome chromium-browser vlc syncthing
 
 # Enable syncthing user service
 systemctl --user enable syncthing.service

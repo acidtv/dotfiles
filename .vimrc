@@ -184,6 +184,9 @@ else
   set signcolumn=yes
 endif
 
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+"
 " ######### Airline ##################################
 
 " Configure statusline plugin
