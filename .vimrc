@@ -43,6 +43,8 @@ Plugin 'alvan/vim-php-manual'
 " phpactor cannot handle the orbit sourcecode
 Plugin 'phpactor/phpactor'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'editorconfig/editorconfig-vim'
+"Plugin 'swekaj/php-foldexpr.vim'
 
 " Make sure nodejs is installed!
 " After :PluginInstall go to ~/.vim/bundle/coc.nvim/ and execute `yarn install -frozen-lockfile`
@@ -51,11 +53,12 @@ Plugin 'christoomey/vim-tmux-navigator'
 " :CocInstall coc-html
 " :CocInstall coc-phpls
 " :CocInstall coc-tsserver
+" :CocInstall coc-diagnostic
 Plugin 'neoclide/coc.nvim'
 
 "slow with airline
 Plugin 'ludovicchabant/vim-lawrencium'
-"Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 
 " vim-scripts repos
 Plugin 'AutoClose'
@@ -96,6 +99,9 @@ set laststatus=2 " always show statusline
 " no delays for ESC please
 ""set timeoutlen=150 ttimeoutlen=0
 set nofoldenable
+
+" vim-fugitive uses this setting as well
+set diffopt+=vertical
 
 " hopefully gets rid of '2 q' garbage chars in tmux
 " UPDATE: doesnt seem to work, but leaving it here anyway
@@ -154,7 +160,9 @@ let g:syntastic_python_flake8_args = "--max-line-length=160"
 let g:vimwiki_hl_cb_checked = 1
 nmap <leader>tt <Plug>VimwikiToggleListItem
 
+" NERDTree
 map <C-t> :NERDTreeToggle<CR>
+nmap <leader>nf :NERDTreeFind<CR>
 " Make NERDTree ignore .pyc files
 let NERDTreeIgnore = ['\.pyc$']
 
@@ -405,7 +413,7 @@ command! ProjectInit call ProjectInit()
 
 " ######### Autocmds ##################################
 
-autocmd FileType php,html,smarty,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+"autocmd FileType php,html,smarty,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " ######### INIT ##################################
 

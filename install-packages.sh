@@ -18,17 +18,17 @@ sudo apt install -y neovim vim tmux zsh git mercurial curl whois traceroute net-
 # dev packages
 sudo apt install -y mercurial-keyring exuberant-ctags ack-grep phing composer php-mbstring python3-pip ruby-dev ruby-bundler silversearcher-ag
 
-# vim config
-if [ ! -d ~/.config/nvim/bundle/Vundle.vim ]; then
-	git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
-fi
-
 # neovim config
 if [ ! -d ~/.config/nvim ]; then
 	mkdir -p ~/.config/nvim
 fi
-
 cp -u $SCRIPT_DIR/.config/nvim/init.vim ~/.config/nvim/
+ln -s $SCRIPT_DIR/.config/nvim/coc-settings.json ~/.config/nvim/
+
+# vim config
+if [ ! -d ~/.config/nvim/bundle/Vundle.vim ]; then
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
+fi
 
 # symlinks
 
