@@ -19,6 +19,24 @@ zstyle ':completion:*' menu select
 
 PATH=/home/alex/bin:/usr/local/mysql/bin:/usr/local/bin:/home/alex/.linuxbrew/bin:/home/alex/.local/bin:/home/alex/.composer/vendor/bin:/home/alex/code/hgtools:$PATH
 
+function git_prompt() {
+	if [[ $EUID -eq 0 ]]; then
+		return
+	fi
+
+	# use globbing to find parent .hg dir
+	git_dir=`echo (../)#.git(N/Y1:h)`
+
+	if [ -z $git_dir ]; then
+		return
+	fi
+
+	branch=`git branch --show-current`
+
+	if [ $branch ]; then
+		echo "⎇: %{$fg_bold[blue]%}$branch%{$reset_color%}"
+	fi
+}
 function hg_prompt() {
 	if [[ $EUID -eq 0 ]]; then
 		return
@@ -45,7 +63,7 @@ ffind() {
 }
 
 PS1='%{$fg_bold[red]%}%m %{$fg[cyan]%}%$(( $COLUMNS/25 ))c%{$reset_color%}%(!.#.$) '
-RPROMPT='$(hg_prompt) %T'
+RPROMPT='$(git_prompt) %T'
 
 set -o vi
 setopt autocd
