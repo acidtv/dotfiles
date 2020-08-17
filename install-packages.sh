@@ -36,6 +36,7 @@ SYMLINKS=".vimrc
 .gitconfig
 .zshrc
 .tmux.conf
+.fzf.zsh
 "
 for link in $SYMLINKS; do
 	if [ ! -e "$HOME/$link" ]; then
