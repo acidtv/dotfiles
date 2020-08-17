@@ -1,6 +1,6 @@
 {
 	"diagnostic-languageserver.filetypes": {
-		"php": ["phpcs"]
+		"php": ["phpcs", "phpstan", "php"]
 	},
 
 	"diagnostic-languageserver.linters": {
@@ -25,6 +25,29 @@
 			"securities": {
 				"error": "error",
 				"warning": "warning"
+			}
+		},
+		"php": {
+			"command": "php",
+			"debounce": 100,
+			"rootPatterns": [ "composer.json", "composer.lock", "vendor", ".git" ],
+			"args": [ "-l" ],
+			"offsetLine": 0,
+			"offsetColumn": 0,
+			"isStderr": true,
+			"sourceName": "php",
+			"formatLines": 1,
+			"formatPattern": [
+				"^(.*): (.*) on line (\\d+)$",
+				{
+					"line": 3,
+					"message": 2,
+					"security": 1
+				}
+			],
+			"securities": {
+				"error": "PHP Fatal error",
+				"warning": "???"
 			}
 		}
 	}
