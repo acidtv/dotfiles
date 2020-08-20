@@ -16,7 +16,11 @@ echo "Linking configs to $SCRIPT_DIR"
 sudo apt install -y neovim vim tmux zsh git mercurial curl whois traceroute net-tools
 
 # dev packages
-sudo apt install -y mercurial-keyring exuberant-ctags ack-grep phing composer php-mbstring python3-pip ruby-dev ruby-bundler silversearcher-ag
+sudo apt install -y mercurial-keyring exuberant-ctags ack-grep phing composer php-mbstring python3-pip ruby-dev ruby-bundler silversearcher-ag nodejs yarnpkg 
+
+# yarn symlink
+
+sudo ln -s /bin/yarnpkg /usr/local/bin/yarn
 
 # neovim config
 if [ ! -d ~/.config/nvim ]; then
@@ -90,4 +94,4 @@ echo "Don't forget to share the syncthing folder with this device. Use 'syncthin
 
 # Switch caps with escape
 
-# sed -i "s/XKBOPTIONS=\"\"/XKBOPTIONS=\"caps:swapescape\"/" /etc/default/keyboard
+sed -i "s/XKBOPTIONS=\"\"/XKBOPTIONS=\"caps:swapescape\"/" /etc/default/keyboard
