@@ -95,4 +95,5 @@ echo "Don't forget to share the syncthing folder with this device. Use 'syncthin
 
 # Switch caps with escape
 
-sed -i "s/XKBOPTIONS=\"\"/XKBOPTIONS=\"caps:swapescape\"/" /etc/default/keyboard
+echo "Switching caps and escape keys"
+sudo sed -i "s/XKBOPTIONS=\"\"/XKBOPTIONS=\"caps:swapescape\"/" /etc/default/keyboard
