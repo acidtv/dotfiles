@@ -93,12 +93,15 @@ sudo apt install -y keepassxc network-manager-openvpn network-manager-openvpn-gn
 systemctl --user enable syncthing.service
 systemctl --user start syncthing.service
 
-# Xubuntu packages
+# Remove Ubuntu ctrl-alt-(left|right) shortcuts so we can use them in phpstorm
+# See: https://stackoverflow.com/questions/47808160/intellij-idea-ctrlaltleft-shortcut-doesnt-work-in-ubuntu
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "[]"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "[]"
 
+# Xubuntu packages
 # apt install -y xubuntu-restricted-extras redshift redshift-gtk duplicity deja-dup
 
 # Switch caps with escape
-
 echo "Switching caps and escape keys"
 sudo sed -i "s/XKBOPTIONS=\"\"/XKBOPTIONS=\"caps:swapescape\"/" /etc/default/keyboard
 
