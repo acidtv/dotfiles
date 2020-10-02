@@ -13,10 +13,10 @@ echo "Linking configs to $SCRIPT_DIR"
 # apt update
 
 # base packages
-sudo apt install -y neovim vim tmux zsh git mercurial curl whois traceroute net-tools
+sudo apt install -y neovim vim tmux zsh git mercurial curl whois traceroute net-tools magic-wormhole xfce4-terminal fzf
 
 # dev packages
-sudo apt install -y mercurial-keyring exuberant-ctags ack-grep phing composer php-mbstring python3-pip ruby-dev ruby-bundler silversearcher-ag nodejs yarnpkg 
+sudo apt install -y mercurial-keyring exuberant-ctags ack-grep phing composer php-mbstring python3-pip ruby-dev ruby-bundler silversearcher-ag nodejs yarnpkg docker.io docker-compose
 
 # yarn symlink
 
@@ -37,7 +37,6 @@ fi
 # symlinks
 
 SYMLINKS=".vimrc
-.gitconfig
 .zshrc
 .tmux.conf
 .fzf.zsh
@@ -49,6 +48,12 @@ for link in $SYMLINKS; do
 		ln -s $SCRIPT_DIR/$link $HOME/
 	fi
 done
+
+# git config
+cp .gitconfig ~/
+
+# tmux config
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # mercurial config
 
@@ -87,7 +92,6 @@ sudo apt install -y keepassxc network-manager-openvpn network-manager-openvpn-gn
 # Enable syncthing user service
 systemctl --user enable syncthing.service
 systemctl --user start syncthing.service
-echo "Don't forget to share the syncthing folder with this device. Use 'syncthing -browser-only' to open the syncthing interface."
 
 # Xubuntu packages
 
@@ -97,3 +101,10 @@ echo "Don't forget to share the syncthing folder with this device. Use 'syncthin
 
 echo "Switching caps and escape keys"
 sudo sed -i "s/XKBOPTIONS=\"\"/XKBOPTIONS=\"caps:swapescape\"/" /etc/default/keyboard
+
+echo "### NOTES ###"
+echo " * Don't forget to share the syncthing folder with this device. Use 'syncthing -browser-only' to open the syncthing interface."
+echo " * Install vim plugins with :PluginInstall"
+echo " * Install COC deps with :call coc#util#install()"
+echo " * Install fzf deps with :call fzf#install()"
+echo " * Set default terminal in gnome with: sudo update-alternatives --config x-terminal-emulator"
