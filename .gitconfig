@@ -1,6 +1,6 @@
 [user]
 	name = Alex
-	email = alex@1200wd.com
+	email = alex@qwoot.net
 
 [alias]
 	st = status
@@ -9,8 +9,12 @@
 	co = checkout
 	df = diff
 
+[core]
+	pager = less -x4
+
 [push]
 	default = current
+
 [git-bug "auth.af02cb3b158e8705de5fe502a0f20d7cf426e353e238d645aad8e7c5413a3c3d"]
 	kind = token
 	target = github
