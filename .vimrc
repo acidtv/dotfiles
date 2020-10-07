@@ -58,7 +58,7 @@ Plugin 'neoclide/coc.nvim'
 
 "slow with airline
 Plugin 'ludovicchabant/vim-lawrencium'
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 
 " vim-scripts repos
 Plugin 'AutoClose'
