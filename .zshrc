@@ -89,6 +89,7 @@ alias de='docker-compose exec'
 
 alias gd='git diff HEAD'
 alias gs='git status'
+alias gb='git branch -vv'
 alias hgd='hg diff -p | nvim -R -'
 alias hgs='hg st -S'
 alias hgio='echo "Incoming:"; hg in --quiet -T "{author}@{branch}: {desc}\n"; echo "\nOutgoing:"; hg out --quiet'
