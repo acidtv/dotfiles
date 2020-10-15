@@ -50,10 +50,14 @@ for link in $SYMLINKS; do
 done
 
 # git config
-cp .gitconfig ~/
+if [ ! -e "$HOME/.gitconfig" ]; then
+	cp .gitconfig ~/
+fi
 
 # tmux config
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
 # mercurial config
 
@@ -65,25 +69,6 @@ fi
 # set default shell
 
 chsh -s /usr/bin/zsh $USER
-
-# docker
-
-# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-# 
-# add-apt-repository \
-#    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-#    $(lsb_release -cs) \
-#    stable"
-# 
-# apt update
-# apt install -y docker-ce
-
-# lxc
-
-#if [ ! -f /usr/bin/lxd ]; then
-#	apt install -y lxc1 lxd
-#	lxd init
-#fi
 
 # GUI packages
 
@@ -100,6 +85,13 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "[]"
 
 # Xubuntu packages
 # apt install -y xubuntu-restricted-extras redshift redshift-gtk duplicity deja-dup
+
+if [ ! -e "$HOME/bin/PathPicker-master/fpp" ]; then
+	curl -L "https://github.com/facebook/PathPicker/archive/master.zip" > ~/Downloads/fpp-master.zip
+	unzip -d ~/bin ~/Downloads/fpp-master.zip
+	ln -s /home/alex/bin/PathPicker-master/fpp /usr/local/bin/fpp
+	rm ~/Downloads/fpp-master.zip
+fi
 
 # Switch caps with escape
 echo "Switching caps and escape keys"

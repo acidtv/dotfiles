@@ -17,7 +17,7 @@ setopt extended_glob
 # select file in completion menu
 zstyle ':completion:*' menu select
 
-PATH=/home/alex/bin:/usr/local/mysql/bin:/usr/local/bin:/home/alex/.linuxbrew/bin:/home/alex/.local/bin:/home/alex/.composer/vendor/bin:/home/alex/code/hgtools:~/.npm-global/bin:$PATH
+PATH=/home/alex/bin:/usr/local/mysql/bin:/usr/local/bin:/home/alex/.linuxbrew/bin:/home/alex/.local/bin:/home/alex/.composer/vendor/bin:/home/alex/code/hgtools:~/.npm-global/bin:/home/alex/bin/PathPicker-master/:$PATH
 
 function git_prompt() {
 	if [[ $EUID -eq 0 ]]; then
