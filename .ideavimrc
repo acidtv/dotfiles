@@ -2,3 +2,5 @@ set ignorecase
 set incsearch
 set hlsearch
 set scrolloff=4
+set visualbell
+set noerrorbells
