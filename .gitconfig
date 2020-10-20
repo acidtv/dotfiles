@@ -10,7 +10,12 @@
 	df = diff
 
 [core]
-	pager = less -x4
+	#pager = less -x4
+	pager = delta --light
+	attributesfile = /home/alex/.gitattributes
+
+[delta]
+	line-numbers = true
 
 [push]
 	default = current

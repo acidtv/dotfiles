@@ -41,6 +41,7 @@ SYMLINKS=".vimrc
 .tmux.conf
 .fzf.zsh
 .ideavimrc
+.gitattributes
 "
 for link in $SYMLINKS; do
 	if [ ! -e "$HOME/$link" ]; then
@@ -54,13 +55,18 @@ if [ ! -e "$HOME/.gitconfig" ]; then
 	cp .gitconfig ~/
 fi
 
+# delta git diff
+if [ ! -e "/usr/bin/delta" ]; then
+	wget "https://github.com/dandavison/delta/releases/download/0.4.4/git-delta_0.4.4_amd64.deb"
+	sudo dpkg -i git-delta_0.4.4_amd64.deb
+fi
+
 # tmux config
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 # mercurial config
-
 if [ ! -e "$HOME/.hgrc" ]; then
 	echo "Copying .hgrc ..."
 	cp $SCRIPT_DIR/.hgrc.skel ~/.hgrc
