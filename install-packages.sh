@@ -16,18 +16,22 @@ echo "Linking configs to $SCRIPT_DIR"
 sudo apt install -y neovim vim tmux zsh git mercurial curl whois traceroute net-tools magic-wormhole xfce4-terminal fzf
 
 # dev packages
-sudo apt install -y mercurial-keyring exuberant-ctags ack-grep phing composer php-mbstring python3-pip ruby-dev ruby-bundler silversearcher-ag nodejs yarnpkg docker.io docker-compose
+sudo apt install -y mercurial-keyring exuberant-ctags ack-grep phing composer php-mbstring python3-pip ruby-dev ruby-bundler silversearcher-ag nodejs docker.io docker-compose
 
 # yarn symlink
 
-sudo ln -s /bin/yarnpkg /usr/local/bin/yarn
+YARN_PATH=$(which yarn)
+if [ ! -e "$YARN_PATH" ]; then
+	sudo apt install -y yarnpkg
+	sudo ln -s /bin/yarnpkg /usr/local/bin/yarn
+fi
 
 # neovim config
 if [ ! -d ~/.config/nvim ]; then
 	mkdir -p ~/.config/nvim
+	cp -u $SCRIPT_DIR/.config/nvim/init.vim ~/.config/nvim/
+	ln -s $SCRIPT_DIR/.config/nvim/coc-settings.json ~/.config/nvim/
 fi
-cp -u $SCRIPT_DIR/.config/nvim/init.vim ~/.config/nvim/
-ln -s $SCRIPT_DIR/.config/nvim/coc-settings.json ~/.config/nvim/
 
 # vim config
 if [ ! -d ~/.config/nvim/bundle/Vundle.vim ]; then
@@ -95,7 +99,7 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "[]"
 if [ ! -e "$HOME/bin/PathPicker-master/fpp" ]; then
 	curl -L "https://github.com/facebook/PathPicker/archive/master.zip" > ~/Downloads/fpp-master.zip
 	unzip -d ~/bin ~/Downloads/fpp-master.zip
-	ln -s /home/alex/bin/PathPicker-master/fpp /usr/local/bin/fpp
+	sudo ln -s /home/alex/bin/PathPicker-master/fpp /usr/local/bin/fpp
 	rm ~/Downloads/fpp-master.zip
 fi
 
