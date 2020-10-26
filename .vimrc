@@ -119,7 +119,7 @@ else
 	set background=light
 endif
 
-highlight SignColumn ctermbg=lightgrey
+highlight clear SignColumn
 
 " faster buffer switching
 nnoremap <silent> <C-l> :bn<CR>
