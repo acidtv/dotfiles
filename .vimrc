@@ -112,7 +112,13 @@ set diffopt+=vertical
 set cursorline
 
 colo solarized
-set background=light
+
+if $LIGHT_MODE == "dark"
+	set background=dark
+else
+	set background=light
+endif
+
 highlight SignColumn ctermbg=lightgrey
 
 " faster buffer switching

@@ -120,6 +120,12 @@ if [[ `uname` != 'Linux' ]]; then
    source ~/code/dotfiles/.zshrc.mac
 fi
 
+if grep -q "ColorForeground=#839496" ~/.config/xfce4/terminal/terminalrc; then
+	export LIGHT_MODE=dark
+else
+	export LIGHT_MODE=light
+fi
+
 export TERM=xterm-256color
 export SVN_EDITOR=nvim
 export EDITOR=nvim
