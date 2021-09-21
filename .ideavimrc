@@ -4,3 +4,5 @@ set hlsearch
 set scrolloff=4
 set visualbell
 set noerrorbells
+
+map <C-6> :action RecentFiles<CR>

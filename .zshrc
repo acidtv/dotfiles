@@ -78,8 +78,9 @@ alias pd='popd'
 alias fixdbus='export $(dbus-launch)'
 alias ip='ip -c'
 alias ipa='ip -br -c a'
-alias prettyjson='python -m json.tool'
+alias prettyjson='python3 -m json.tool'
 alias de='docker-compose exec'
+alias dtu='export CDIR=${PWD##*/}; docker-compose exec dev $CDIR/vendor/bin/phpunit -c $CDIR/test --colors=always --testsuite "Objectenregister Unit Test Suite"'
 
 # nvim is being unstable...
 #alias vi='nvim'
@@ -135,6 +136,7 @@ export MAGICK_HOME="$HOME/bin/imagemagick/"
 export PATH="$MAGICK_HOME/bin:$PATH:/Users/alex/pear/bin"
 export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"
 #export PYTHONPATH=$PYTHONPATH:/home/alex/code/caffe/python
+export GOBIN=/home/alex/bin
 
 # Android SDK envs for react-native
 export ANDROID_HOME=$HOME/Android/Sdk
@@ -147,6 +149,10 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # execute previous command and pipe through fpp
 alias pfpp='`fc -ln -1` | fpp'
+
+if [ -f "~/.zshrc.local" ]; then
+	source ~/.zshrc.local
+fi
 
 function ssh_reverse() {
 	if [ -z "$1" ]
@@ -161,4 +167,15 @@ function ssh_reverse() {
 
 function ssh() {
 	/usr/bin/ssh -t $@ -- "tmux attach || tmux || /bin/bash"
+}
+
+_fzf_complete_git() {
+    ARGS="$@"
+    if [[ $ARGS == 'git ci'* ]]; then
+        _fzf_complete "--reverse --multi" "$@" < <(
+			git status --porcelain | rev | cut -d" " -f1 | rev 
+        )
+    else
+        eval "zle ${fzf_default_completion:-expand-or-complete}"
+    fi
 }
