@@ -54,10 +54,10 @@ Plugin 'editorconfig/editorconfig-vim'
 " :CocInstall coc-phpls
 " :CocInstall coc-tsserver
 " :CocInstall coc-diagnostic
-Plugin 'neoclide/coc.nvim'
+""Plugin 'neoclide/coc.nvim'
 
 "slow with airline
-Plugin 'ludovicchabant/vim-lawrencium'
+""Plugin 'ludovicchabant/vim-lawrencium'
 "Plugin 'tpope/vim-fugitive'
 
 " vim-scripts repos

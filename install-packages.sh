@@ -2,11 +2,6 @@
 
 set -e
 
-#if [ -z "$SUDO_USER" ]; then
-	#echo "Please run this script with sudo" >&2
-	#exit 1
-#fi
-
 SCRIPT_DIR=$(cd `dirname "$0"`; pwd)
 echo "Linking configs to $SCRIPT_DIR"
 
@@ -16,7 +11,7 @@ echo "Linking configs to $SCRIPT_DIR"
 sudo apt install -y neovim vim tmux zsh git mercurial curl whois traceroute net-tools magic-wormhole xfce4-terminal fzf
 
 # dev packages
-sudo apt install -y mercurial-keyring exuberant-ctags ack-grep phing composer php-mbstring python3-pip ruby-dev ruby-bundler silversearcher-ag nodejs docker.io docker-compose
+sudo apt install -y exuberant-ctags ack-grep composer php-mbstring python3-pip ruby-dev ruby-bundler silversearcher-ag nodejs docker.io docker-compose
 
 # yarn symlink
 
@@ -82,7 +77,7 @@ chsh -s /usr/bin/zsh $USER
 
 # GUI packages
 
-sudo apt install -y keepassxc network-manager-openvpn network-manager-openvpn-gnome chromium-browser vlc syncthing
+sudo apt install -y network-manager-openvpn network-manager-openvpn-gnome chromium-browser vlc syncthing
 
 # Enable syncthing user service
 systemctl --user enable syncthing.service
@@ -90,16 +85,16 @@ systemctl --user start syncthing.service
 
 # Remove Ubuntu ctrl-alt-(left|right) shortcuts so we can use them in phpstorm
 # See: https://stackoverflow.com/questions/47808160/intellij-idea-ctrlaltleft-shortcut-doesnt-work-in-ubuntu
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "[]"
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "[]"
+#gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "[]"
+#gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "[]"
 
 # Xubuntu packages
 # apt install -y xubuntu-restricted-extras redshift redshift-gtk duplicity deja-dup
 
 if [ ! -e "$HOME/bin/PathPicker-master/fpp" ]; then
-	curl -L "https://github.com/facebook/PathPicker/archive/master.zip" > ~/Downloads/fpp-master.zip
+	curl -L "https://github.com/facebook/PathPicker/archive/main.zip" > ~/Downloads/fpp-master.zip
 	unzip -d ~/bin ~/Downloads/fpp-master.zip
-	sudo ln -s /home/alex/bin/PathPicker-master/fpp /usr/local/bin/fpp
+	sudo ln -f -s /home/alex/bin/PathPicker-master/fpp /usr/local/bin/fpp
 	rm ~/Downloads/fpp-master.zip
 fi
 

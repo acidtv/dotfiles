@@ -17,8 +17,6 @@ setopt extended_glob
 # select file in completion menu
 zstyle ':completion:*' menu select
 
-PATH=/home/alex/bin:/usr/local/mysql/bin:/usr/local/bin:/home/alex/.linuxbrew/bin:/home/alex/.local/bin:/home/alex/.composer/vendor/bin:/home/alex/code/hgtools:~/.npm-global/bin:/home/alex/bin/PathPicker-master/:$PATH
-
 function git_prompt() {
 	if [[ $EUID -eq 0 ]]; then
 		return
@@ -133,17 +131,21 @@ export EDITOR=nvim
 export HGEDITOR="nvim +Hgdiff"
 export GIT_EDITOR="nvim +Gitdiff"
 export MAGICK_HOME="$HOME/bin/imagemagick/"
-export PATH="$MAGICK_HOME/bin:$PATH:/Users/alex/pear/bin"
+#export PATH="$MAGICK_HOME/bin:$PATH:/Users/alex/pear/bin"
 export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"
 #export PYTHONPATH=$PYTHONPATH:/home/alex/code/caffe/python
 export GOBIN=/home/alex/bin
 
 # Android SDK envs for react-native
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+#export ANDROID_HOME=$HOME/Android/Sdk
+#export PATH=$PATH:$ANDROID_HOME/emulator
+#export PATH=$PATH:$ANDROID_HOME/tools
+#export PATH=$PATH:$ANDROID_HOME/tools/bin
+#export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+export PATH=~/.pyenv/bin:$PATH
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # include fzf (https://github.com/junegunn/fzf) keyboard shortcuts
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
