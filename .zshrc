@@ -80,6 +80,9 @@ alias prettyjson='python3 -m json.tool'
 alias de='docker-compose exec'
 alias dtu='export CDIR=${PWD##*/}; docker-compose exec dev $CDIR/vendor/bin/phpunit -c $CDIR/test --colors=always --testsuite "Objectenregister Unit Test Suite"'
 
+alias git-list-gone='git branch -vv | grep ": gone" |  grep -v "\*" | cut -f3 -d" " | xargs -r git branch -D'
+alias git-remove-gone='git-list-gone | xargs -r git branch -D'
+
 # nvim is being unstable...
 #alias vi='nvim'
 #alias vim='nvim'
