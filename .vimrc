@@ -21,7 +21,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'msanders/snipmate.vim'
 Plugin 'tpope/vim-markdown'
-Plugin 'lumiliet/vim-twig'
+"Plugin 'lumiliet/vim-twig'
 
 Plugin 'bling/vim-airline'
 Plugin 'mileszs/ack.vim'
@@ -39,12 +39,13 @@ Plugin 'thinca/vim-ref'
 "Plugin 'chrisbra/csv.vim'
 "Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'mbbill/undotree'
-Plugin 'alvan/vim-php-manual'
+"Plugin 'alvan/vim-php-manual'
 " phpactor cannot handle the orbit sourcecode
-Plugin 'phpactor/phpactor'
+"Plugin 'phpactor/phpactor'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'editorconfig/editorconfig-vim'
 "Plugin 'swekaj/php-foldexpr.vim'
+Plugin 'numirias/semshi'
 
 " Make sure nodejs is installed!
 " After :PluginInstall go to ~/.vim/bundle/coc.nvim/ and execute `yarn install -frozen-lockfile`
@@ -54,7 +55,7 @@ Plugin 'editorconfig/editorconfig-vim'
 " :CocInstall coc-phpls
 " :CocInstall coc-tsserver
 " :CocInstall coc-diagnostic
-""Plugin 'neoclide/coc.nvim'
+Plugin 'neoclide/coc.nvim'
 
 "slow with airline
 ""Plugin 'ludovicchabant/vim-lawrencium'
@@ -120,6 +121,7 @@ else
 endif
 
 highlight clear SignColumn
+highlight VertSplit ctermbg=NONE guibg=NONE
 
 " faster buffer switching
 nnoremap <silent> <C-l> :bn<CR>
@@ -200,6 +202,18 @@ endif
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 "
 " ######### Airline ##################################
 

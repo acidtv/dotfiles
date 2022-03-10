@@ -37,6 +37,7 @@ fi
 
 SYMLINKS=".vimrc
 .zshrc
+.zprofile
 .tmux.conf
 .fzf.zsh
 .ideavimrc

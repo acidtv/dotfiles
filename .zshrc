@@ -86,7 +86,7 @@ alias dtu='export CDIR=${PWD##*/}; docker-compose exec dev $CDIR/vendor/bin/phpu
 #alias view='nvim -R'
 #alias svim='sudo nvim'
 
-alias gd='git diff HEAD'
+alias gd='git diff HEAD | view -'
 alias gs='git status'
 alias gb='git branch -vv'
 alias hgd='hg diff -p | nvim -R -'
@@ -119,11 +119,11 @@ if [[ `uname` != 'Linux' ]]; then
    source ~/code/dotfiles/.zshrc.mac
 fi
 
-if grep -q "ColorForeground=#839496" ~/.config/xfce4/terminal/terminalrc; then
-	export LIGHT_MODE=dark
-else
-	export LIGHT_MODE=light
-fi
+#if grep -q "ColorForeground=#839496" ~/.config/xfce4/terminal/terminalrc; then
+#	export LIGHT_MODE=dark
+#else
+#	export LIGHT_MODE=light
+#fi
 
 export TERM=xterm-256color
 export SVN_EDITOR=nvim
@@ -135,6 +135,8 @@ export MAGICK_HOME="$HOME/bin/imagemagick/"
 export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"
 #export PYTHONPATH=$PYTHONPATH:/home/alex/code/caffe/python
 export GOBIN=/home/alex/bin
+
+export LIGHT_MODE=dark
 
 # Android SDK envs for react-native
 #export ANDROID_HOME=$HOME/Android/Sdk
