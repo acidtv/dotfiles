@@ -100,6 +100,14 @@ alias hgio='echo "Incoming:"; hg in --quiet -T "{author}@{branch}: {desc}\n"; ec
 # bindkey ^r  history-incremental-search-backward
 setopt hist_ignore_all_dups
 
+export HISTSIZE=10000
+#save history after logout
+export SAVEHIST=10000
+#append into history file
+setopt INC_APPEND_HISTORY
+#add timestamp for each entry
+setopt EXTENDED_HISTORY
+
 # set timeout shorter so switching between vi modes is faster
 export KEYTIMEOUT=2
 
