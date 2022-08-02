@@ -100,6 +100,7 @@ alias hgio='echo "Incoming:"; hg in --quiet -T "{author}@{branch}: {desc}\n"; ec
 # bindkey ^r  history-incremental-search-backward
 setopt hist_ignore_all_dups
 
+export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
 #save history after logout
 export SAVEHIST=10000
