@@ -15,11 +15,11 @@ sudo apt install -y exuberant-ctags ack-grep composer php-mbstring python3-pip r
 
 # yarn symlink
 
-YARN_PATH=$(which yarn)
-if [ ! -e "$YARN_PATH" ]; then
-	sudo apt install -y yarnpkg
-	sudo ln -s /bin/yarnpkg /usr/local/bin/yarn
-fi
+#YARN_PATH=$(which yarn)
+#if [ ! -e "$YARN_PATH" ]; then
+#	sudo apt install -y yarnpkg
+#	sudo ln -s /bin/yarnpkg /usr/local/bin/yarn
+#fi
 
 # neovim config
 if [ ! -d ~/.config/nvim ]; then
@@ -92,12 +92,12 @@ systemctl --user start syncthing.service
 # Xubuntu packages
 # apt install -y xubuntu-restricted-extras redshift redshift-gtk duplicity deja-dup
 
-if [ ! -e "$HOME/bin/PathPicker-master/fpp" ]; then
-	curl -L "https://github.com/facebook/PathPicker/archive/main.zip" > ~/Downloads/fpp-master.zip
-	unzip -d ~/bin ~/Downloads/fpp-master.zip
-	sudo ln -f -s /home/alex/bin/PathPicker-master/fpp /usr/local/bin/fpp
-	rm ~/Downloads/fpp-master.zip
-fi
+#if [ ! -e "$HOME/bin/PathPicker-master/fpp" ]; then
+#	curl -L "https://github.com/facebook/PathPicker/archive/main.zip" > ~/Downloads/fpp-master.zip
+#	unzip -d ~/bin ~/Downloads/fpp-master.zip
+#	sudo ln -f -s /home/alex/bin/PathPicker-master/fpp /usr/local/bin/fpp
+#	rm ~/Downloads/fpp-master.zip
+#fi
 
 # Switch caps with escape
 echo "Switching caps and escape keys"
