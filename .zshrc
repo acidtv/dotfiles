@@ -89,7 +89,8 @@ alias git-remove-gone='git-list-gone | xargs -r git branch -D'
 #alias view='nvim -R'
 #alias svim='sudo nvim'
 
-alias gd='git diff HEAD | view -'
+#alias gd='git diff HEAD | view -'
+alias gd='GIT_EXTERNAL_DIFF="difft --background=light" git diff HEAD'
 alias gs='git status'
 alias gb='git branch -vv'
 alias hgd='hg diff -p | nvim -R -'
@@ -157,7 +158,7 @@ export LIGHT_MODE=dark
 #export PATH=$PATH:$ANDROID_HOME/tools/bin
 #export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-export PATH=~/.pyenv/bin:$PATH
+export PATH=~/.pyenv/bin:~/.cargo/bin:~/Sync/bin:$PATH
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
